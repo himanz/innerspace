@@ -50,7 +50,11 @@ describe BusinessesController do
 			get :new
 			expect(assigns(:business)).to be_a_new(Business)
 		end
-		it "renders the :new template"
+
+		it "renders the :new template" do
+			get :new
+			expect(response).to render_template :new
+		end
 	end
 
 end
