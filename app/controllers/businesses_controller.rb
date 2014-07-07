@@ -1,8 +1,8 @@
 class BusinessesController < ApplicationController
 	def index
-		# if params[:letter]
-		# 	@businesses = Business.by_letter(params[:letter])
-		# end
+		if params[:letter]
+			@businesses = Business.by_letter(params[:letter])
+		end
 	end
 
 	# private
