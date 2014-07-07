@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe Business do
   it "is valid with a name and address" do
-  	business = Business.new(
-  		name: 'Pho Paradise',
-  		address: '100 McCowan Road')
+  	business = create(:business)
   	expect(business).to be_valid
   end
 
