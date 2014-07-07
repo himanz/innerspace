@@ -9,7 +9,11 @@ describe BusinessesController do
 				get :index, letter: 'P'
 				expect(assigns(:businesses)).to match_array([pho])
 			end
-			it "renders the :index view"
+
+			it "renders the :index view" do
+				get :index, letter: 'P'
+				expect(response).to render_template :index
+			end
 		end
 
 		context 'without params[:letter]' do
