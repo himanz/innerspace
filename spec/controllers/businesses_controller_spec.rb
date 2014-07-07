@@ -59,7 +59,11 @@ describe BusinessesController do
 
 	describe "POST #create" do
 		context "with valid attributes" do
-			it "saves the new business in the database"
+			it "saves the new business in the database" do
+				expect{
+					post :create, business: attributes_for(:business)
+				}.to change(Business, :count).by(1)
+			end
 			it "redirects to business#show"
 		end
 
