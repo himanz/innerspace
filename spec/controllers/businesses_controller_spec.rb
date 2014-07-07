@@ -57,4 +57,16 @@ describe BusinessesController do
 		end
 	end
 
+	describe "POST #create" do
+		context "with valid attributes" do
+			it "saves the new business in the database"
+			it "redirects to business#show"
+		end
+
+		context "with invalid attributes" do
+			it "does not save the new business in the database"
+			it "re-rendres the :new template"
+		end
+	end
+
 end
