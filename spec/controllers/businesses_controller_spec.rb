@@ -21,7 +21,7 @@ describe BusinessesController do
 				pho = create(:business, name: 'Pho')
 				bob = create(:business, name: 'Bob')
 				get :index
-				expect(assigns(:businesses)).to match_array([pho, bob]) 
+				expect(assigns(:businesses)).to match_array([bob, pho]) 
 			end
 			it "renders the :index view"
 		end

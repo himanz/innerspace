@@ -2,6 +2,8 @@ class BusinessesController < ApplicationController
 	def index
 		if params[:letter]
 			@businesses = Business.by_letter(params[:letter])
+		else
+			@businesses = Business.order("name")
 		end
 	end
 
