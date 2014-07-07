@@ -58,7 +58,11 @@ describe BusinessesController do
 	end
   
   describe 'GET #edit' do
-  	it "assigns the requested business to @business"
+  	it "assigns the requested business to @business" do
+  		business = create(:business)
+  		get :show, id: business
+  		expect(assigns(:business)).to eq business
+  	end
   	it "renders the :edit template"
   end
 
