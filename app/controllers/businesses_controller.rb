@@ -22,9 +22,9 @@ class BusinessesController < ApplicationController
       if @business.save
         format.html { redirect_to @business, notice: 'Contact was successfully created.' }
         format.json { render action: 'show', status: :created, location: @business }
-      # else
-      #   format.html { render action: 'new' }
-      #   format.json { render json: @business.errors, status: :unprocessable_entity }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @business.errors, status: :unprocessable_entity }
       end
     end
 	end
