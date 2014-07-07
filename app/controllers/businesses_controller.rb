@@ -17,6 +17,16 @@ class BusinessesController < ApplicationController
 	end
 
 	def create
+		@business = Business.new(business_params)
+		respond_to do |format|
+      if @business.save
+        format.html { redirect_to @business, notice: 'Contact was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @business }
+      # else
+      #   format.html { render action: 'new' }
+      #   format.json { render json: @business.errors, status: :unprocessable_entity }
+      end
+    end
 	end
 
 	private
@@ -24,7 +34,8 @@ class BusinessesController < ApplicationController
 	def set_business
 		@business = Business.find(params[:id])
 	end
-	# def business_params
-	# 	params.require(:business).permit(:name, :address)
-	# end
+	
+	def business_params
+		params.require(:business).permit(:name, :address)
+	end
 end
