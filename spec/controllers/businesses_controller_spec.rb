@@ -17,7 +17,12 @@ describe BusinessesController do
 		end
 
 		context 'without params[:letter]' do
-			it "populates an array of all businesses"
+			it "populates an array of all businesses" do
+				pho = create(:business, name: 'Pho')
+				bob = create(:business, name: 'Bob')
+				get :index
+				expect(assigns(:businesses)).to match_array([pho, bob]) 
+			end
 			it "renders the :index view"
 		end
 	end
