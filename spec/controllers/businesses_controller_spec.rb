@@ -37,7 +37,12 @@ describe BusinessesController do
 			get :show, id: business
 			expect(assigns(:business)).to eq business
 		end
-		it "renders the :show template"
+
+		it "renders the :show template" do
+			business = create(:business)
+			get :show, id: business
+			expect(response).to render_template :show
+		end
 	end
 
 end
