@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Business do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is valid with a name and address"
+  it "is invalid without a name"
+  it "is invalid without an address"
 end
