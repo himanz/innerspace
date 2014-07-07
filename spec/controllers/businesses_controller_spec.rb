@@ -36,7 +36,6 @@ describe BusinessesController do
 			business = create(:business)
 			get :show, id: business
 			expect(assigns(:business)).to eq business
-
 		end
 		it "renders the :show template"
 	end
