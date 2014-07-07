@@ -31,4 +31,9 @@ describe BusinessesController do
 		end
 	end
 
+	describe 'GET #show' do
+		it "assigns the requested business to @business"
+		it "renders the :show template"
+	end
+
 end
