@@ -45,4 +45,9 @@ describe BusinessesController do
 		end
 	end
 
+	describe 'GET #new' do
+		it "assigns a new Business to @business"
+		it "renders the :new template"
+	end
+
 end
