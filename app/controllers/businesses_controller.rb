@@ -16,6 +16,9 @@ class BusinessesController < ApplicationController
 		@business = Business.new
 	end
 
+	def create
+	end
+
 	private
 
 	def set_business
