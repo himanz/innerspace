@@ -56,6 +56,11 @@ describe BusinessesController do
 			expect(response).to render_template :new
 		end
 	end
+  
+  describe 'GET #edit' do
+  	it "assigns the requested business to @business"
+  	it "renders the :edit template"
+  end
 
 	describe "POST #create" do
 		context "with valid attributes" do
@@ -84,5 +89,4 @@ describe BusinessesController do
 			end
 		end
 	end
-
 end
