@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :business do
-    name "MyString"
-    address "MyString"
+    name { Faker::Company.name }
+    address { Faker::Address.street_address }
   end
 end
