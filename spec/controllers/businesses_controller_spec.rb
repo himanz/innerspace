@@ -72,7 +72,11 @@ describe BusinessesController do
 		end
 
 		context "with invalid attributes" do
-			it "does not save the new business in the database"
+			it "does not save the new business in the database" do
+				expect{
+					post :create, business: attributes_for(:invalid_business)
+				}.to_not change(Business, :count)
+			end
 			it "re-rendres the :new template"
 		end
 	end
