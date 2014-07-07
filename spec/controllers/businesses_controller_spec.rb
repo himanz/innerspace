@@ -6,6 +6,7 @@ describe BusinessesController do
 			it "populates an array of businesses starting with the letter" do
 				pho = create(:business, name: 'Pho')
 				bob = create(:business, name: 'Bob')
+				get :index, letter: 'P'
 				expect(assigns(:businesses)).to match_array([pho])
 			end
 			it "renders the :index view"
