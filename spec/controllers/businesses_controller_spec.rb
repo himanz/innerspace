@@ -64,7 +64,11 @@ describe BusinessesController do
 					post :create, business: attributes_for(:business)
 				}.to change(Business, :count).by(1)
 			end
-			it "redirects to business#show"
+
+			it "redirects to business#show" do
+				post :create, business: attributes_for(:business)
+				expect(response).to redirect_to business_path(assigns(:business))
+			end
 		end
 
 		context "with invalid attributes" do
