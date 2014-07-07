@@ -23,7 +23,11 @@ describe BusinessesController do
 				get :index
 				expect(assigns(:businesses)).to match_array([bob, pho]) 
 			end
-			it "renders the :index view"
+
+			it "renders the :index view" do
+				get :index
+				expect(response).to render_template :index
+			end
 		end
 	end
 
