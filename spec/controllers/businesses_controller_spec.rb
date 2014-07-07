@@ -77,7 +77,11 @@ describe BusinessesController do
 					post :create, business: attributes_for(:invalid_business)
 				}.to_not change(Business, :count)
 			end
-			it "re-rendres the :new template"
+
+			it "re-rendres the :new template" do
+				post :create, business: attributes_for(:invalid_business)
+				expect(response).to render_template :new
+			end
 		end
 	end
 
