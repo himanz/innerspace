@@ -46,7 +46,10 @@ describe BusinessesController do
 	end
 
 	describe 'GET #new' do
-		it "assigns a new Business to @business"
+		it "assigns a new Business to @business" do
+			get :new
+			expect(assigns(:business)).to be_a_new(Business)
+		end
 		it "renders the :new template"
 	end
 
