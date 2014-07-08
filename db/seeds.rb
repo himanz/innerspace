@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Business.create(name: "Sangri-La Hotel", address: "188 University Ave", heading: 200, pano: "3L5NCiIf__oAAAQIt-clrA")
+Business.create(name: "Search Engine People Inc.", address: "1305 Pickering Pkwy #500", heading: 300, pano: "JSuPKuDL7l2DyHx0jF4nmg")
