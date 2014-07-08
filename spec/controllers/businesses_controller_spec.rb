@@ -109,7 +109,13 @@ describe BusinessesController do
 				patch :update, id: @business, business: attributes_for(:business)
 				expect(assigns(:business)).to eq(@business)
 			end
-			it "changes @business' attributes"
+
+			it "changes @business' attributes" do
+				patch :update, id: @business, business: attributes_for(:business, name: "Moon Walk", address: "12 Star Walk Drive")
+				@business.reload
+				expect(@business.name).to eq("Moon Walk")
+				expect(@business.address).to eq("12 Star Walk Drive")
+			end
 			it "redirects to the updated business"
 		end
 	end
