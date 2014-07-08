@@ -15,10 +15,10 @@ feature 'Business management' do
 	  	fill_in 'Address', with: '1 Default Drive'
 	  	click_button 'Submit'
 	  }.to change(Business, :count).by(1)
-	  expect(current_path).to eq business_path
-	  expect(page).to have_content "Business was created successfully"
+	  expect(current_path).to eq business_path((default.id + 2))
+	  expect(page).to have_content "Business was successfully created"
 	  within 'h1' do
-	  	expect(page).to have_content 'Businesses'
+	  	expect(page).to have_content 'Default Cafe'
 	  end
 	end
 end

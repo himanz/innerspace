@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<% if flash[:notice] %>
+    <div class="alert-box success radius"><%= flash[:notice] %></div>
+  <% elsif flash[:alert] %>
+    <div class="alert-box alert radius"><%= flash[:alert] %></div>
+  <% end %>
 
 <%= yield %>
 

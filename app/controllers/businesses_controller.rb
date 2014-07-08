@@ -20,7 +20,7 @@ class BusinessesController < ApplicationController
 		@business = Business.new(business_params)
 		respond_to do |format|
       if @business.save
-        format.html { redirect_to @business, notice: 'Contact was successfully created.' }
+        format.html { redirect_to @business, notice: 'Business was successfully created.' }
         format.json { render action: 'show', status: :created, location: @business }
       else
         format.html { render action: 'new' }
