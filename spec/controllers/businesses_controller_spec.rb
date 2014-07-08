@@ -98,4 +98,16 @@ describe BusinessesController do
 			end
 		end
 	end
+
+	describe 'PATCH #update' do
+		before :each do
+			@business = create(:business, name: "Star Walk", address: "12 Star Walk Drive")
+		end
+
+		context "valid attributes" do
+			it "located the requested @business"
+			it "changes @business' attributes"
+			it "redirects to the updated business"
+		end
+	end
 end
