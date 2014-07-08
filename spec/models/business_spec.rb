@@ -13,4 +13,9 @@ describe Business do
   it "is invalid without an address" do
   	expect(Business.new(address: nil)).to have(1).errors_on(:address)
   end
+
+  it "is invalid without a heading" do
+  	expect(Business.new(heading: nil)).to have(1).errors_on(:heading)
+  end
+  it "is invalid without a pano"
 end
