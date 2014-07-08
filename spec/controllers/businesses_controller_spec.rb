@@ -105,7 +105,10 @@ describe BusinessesController do
 		end
 
 		context "valid attributes" do
-			it "located the requested @business"
+			it "located the requested @business" do
+				patch :update, id: @business, business: attributes_for(:business)
+				expect(assigns(:business)).to eq(@business)
+			end
 			it "changes @business' attributes"
 			it "redirects to the updated business"
 		end
