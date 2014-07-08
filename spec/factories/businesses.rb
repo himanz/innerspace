@@ -9,5 +9,10 @@ FactoryGirl.define do
     factory :invalid_business do
   	  name nil
     end
+
+    factory :default do
+    	name "Default Cafe"
+    	address "1 Default Drive"
+    end
   end
 end
