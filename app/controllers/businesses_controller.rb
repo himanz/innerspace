@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  before_action :set_business, only: [:show, :edit, :update]
+  before_action :set_business, only: [:show, :edit, :update, :destroy]
 
 	def index
 		if params[:letter]
@@ -41,6 +41,14 @@ class BusinessesController < ApplicationController
 				format.html { render action: 'edit' }
 				format.json { render json: @business.errors, status: :unprocessable_entity }
 			end
+		end
+	end
+
+	def destroy
+		@business.destroy
+		respond_to do |format|
+			format.html { redirect_to businesses_url }
+			format.json { head :no_content }
 		end
 	end
 
