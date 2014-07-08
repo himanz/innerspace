@@ -39,5 +39,14 @@ feature 'Business management' do
 			expect(page).to have_content '1 Default Drive'
 		end
 	end
-	scenario "delete a business"
+
+	scenario "delete a business" do
+		visit edit_business_path(@default)
+		expect{
+			click_button 'Delete'
+		}.to change(Business, :count).by(-1)
+		expect(current_path).to eq  businesses_path
+		expect(page).to have_content "Business was successfully deleted"
+		expect(page).to have_content "Index"
+	end
 end
