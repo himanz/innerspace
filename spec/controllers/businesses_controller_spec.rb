@@ -124,7 +124,12 @@ describe BusinessesController do
 		end
 
 		context "with invalid attributes" do
-			it "does not change the business' attributes"
+			it "does not change the business' attributes" do
+				patch :update, id: @business, business: attributes_for(:business, name: "Moon Walk", address: nil)
+				@business.reload
+				expect(@business.name).to_not eq("Moon Walk")
+				expect(@business.address).to eq("12 Star Walk Drive")
+			end
 			it "re-renders the edit template"
 		end
 	end
