@@ -17,5 +17,7 @@ describe Business do
   it "is invalid without a heading" do
   	expect(Business.new(heading: nil)).to have(1).errors_on(:heading)
   end
-  it "is invalid without a pano"
+  it "is invalid without a pano" do
+  	expect(Business.new(pano: nil)).to have(1).errors_on(:pano)
+  end
 end
