@@ -29,6 +29,9 @@ class BusinessesController < ApplicationController
     end
 	end
 
+	def edit
+	end
+
 	private
 
 	def set_business
