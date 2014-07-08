@@ -122,5 +122,10 @@ describe BusinessesController do
 				expect(response).to redirect_to @business
 			end
 		end
+
+		context "with invalid attributes" do
+			it "does not change the business' attributes"
+			it "re-renders the edit template"
+		end
 	end
 end
