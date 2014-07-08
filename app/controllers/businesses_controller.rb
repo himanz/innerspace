@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  before_action :set_business, only: [:show]
+  before_action :set_business, only: [:show, :edit]
 
 	def index
 		if params[:letter]
