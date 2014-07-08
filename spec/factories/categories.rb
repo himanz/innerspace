@@ -2,6 +2,14 @@
 
 FactoryGirl.define do
   factory :category do
-    name "MyString"
+    name { Faker::Commerce.department }
+  end
+
+  factory :invalid_category do
+  	name nil
+  end
+
+  factory :default_category do
+  	name "Hotel"
   end
 end
