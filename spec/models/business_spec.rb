@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Business do
-  it "is valid with a name, address, heading and pano" do
+  it "is valid with a name, address, heading, pano and category_id" do
   	business = create(:business)
   	expect(business).to be_valid
   end

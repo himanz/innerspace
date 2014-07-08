@@ -6,7 +6,7 @@ class Business < ActiveRecord::Base
 	validates :pano, presence: true
 	validates :heading, presence: true
 	validates :cbp, presence: true
-  validates :category, presence: true
+  validates :category_id, presence: true
 
 
 	def self.by_letter(letter)
