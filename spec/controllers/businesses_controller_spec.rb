@@ -143,7 +143,9 @@ describe BusinessesController do
 			@business = create(:business)
 		end
 
-		it "deletes the contact"
+		it "deletes the business" do
+			expect{ delete :destroy, id: @business}.to change(Business, :count).by(-1)
+		end
 		it "redirects to business#index"
 	end
 end
