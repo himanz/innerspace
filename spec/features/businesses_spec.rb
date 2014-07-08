@@ -34,6 +34,8 @@ feature 'Business management' do
 		expect(page).to have_content "Business was successfully updated."
 		within 'h1' do
 			expect(page).to have_content 'Yum Bar'
+		end
+		within 'p' do
 			expect(page).to have_content '1 Default Drive'
 		end
 	end
