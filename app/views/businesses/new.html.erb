@@ -1,10 +1,2 @@
-<%= form_for @business do |f| %>
-  
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-
-  <%= f.submit :Submit %>
-<% end %>
+<h1>Submit a new business</h1>
+<%= render 'form' %>
