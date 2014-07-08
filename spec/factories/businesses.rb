@@ -5,6 +5,8 @@ FactoryGirl.define do
   factory :business do
     name { Faker::Company.name }
     address { Faker::Address.street_address }
+    pano "3L5NCiIf__oAAAQIt-clrA"
+    heading 200
 
     factory :invalid_business do
   	  name nil
@@ -13,6 +15,8 @@ FactoryGirl.define do
     factory :default do
     	name "Default Cafe"
     	address "1 Default Drive"
+    	pano "3L5NCiIf__oAAAQIt-clrA"
+    	heading 200
     end
   end
 end
