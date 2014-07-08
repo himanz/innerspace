@@ -116,7 +116,11 @@ describe BusinessesController do
 				expect(@business.name).to eq("Moon Walk")
 				expect(@business.address).to eq("12 Star Walk Drive")
 			end
-			it "redirects to the updated business"
+
+			it "redirects to the updated business" do
+				patch :update, id: @business, business: attributes_for(:business)
+				expect(response).to redirect_to @business
+			end
 		end
 	end
 end
