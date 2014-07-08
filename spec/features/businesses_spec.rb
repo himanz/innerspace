@@ -21,4 +21,7 @@ feature 'Business management' do
 	  	expect(page).to have_content 'Default Cafe'
 	  end
 	end
+
+	scenario "edit a business"
+	scenario "delete a business"
 end
