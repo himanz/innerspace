@@ -130,7 +130,11 @@ describe BusinessesController do
 				expect(@business.name).to_not eq("Moon Walk")
 				expect(@business.address).to eq("12 Star Walk Drive")
 			end
-			it "re-renders the edit template"
+
+			it "re-renders the edit template" do
+				patch :update, id: @business, business: attributes_for(:invalid_business)
+				expect(response).to render_template :edit
+			end
 		end
 	end
 end
