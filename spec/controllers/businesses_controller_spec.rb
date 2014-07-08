@@ -137,4 +137,13 @@ describe BusinessesController do
 			end
 		end
 	end
+
+	describe 'DELETE #destroy' do
+		before :each do
+			@business = create(:business)
+		end
+
+		it "deletes the contact"
+		it "redirects to business#index"
+	end
 end
