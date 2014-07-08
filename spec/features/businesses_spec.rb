@@ -15,6 +15,8 @@ feature 'Business management' do
 	  expect {
 	  	fill_in 'Name', with: @default.name
 	  	fill_in 'Address', with: @default.address
+	  	fill_in 'Heading', with: @default.heading
+	  	fill_in 'Pano', with: @default.pano
 	  	click_button 'Submit'
 	  }.to change(Business, :count).by(1)
 	  expect(current_path).to eq business_path((@default.id + 1))
