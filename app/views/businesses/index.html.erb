@@ -1,7 +1,5 @@
 <p>Index</p>
 
-<%= link_to image_tag("http://maps.googleapis.com/maps/api/streetview?size=400x200&heading=200&pitch=0&pano=3L5NCiIf__oAAAQIt-clrA&cbp&sensor=false"), "https://maps.google.ca/maps?q=Shangri-La+Hotel,+Toronto&ll=43.619674,-79.344635&spn=0.360386,0.723724&cbll=43.64937,-79.386129&layer=c&panoid=3L5NCiIf__oAAAQIt-clrA&cbp=12,191,,0,0&cid=3979399238676398093&t=m&z=11" %>
-
 <!-- http://maps.googleapis.com/maps/api/streetview?size=400x400&location=43.64937,-79.386129&heading=0&sensor=false -->
 
 <!-- http://maps.googleapis.com/maps/api/streetview?size=358x168&heading=1.7980161409022752&pitch=0&pano=y8vXDeuLy7wAAAQXDqKVYQ&sensor=false&key=AIzaSyCH7urS_fgtfrvCldKIqqKt423bB8G6Bic -->
@@ -9,4 +7,6 @@
 <% @businesses.each do |business| %>
   <p><%= "Name: #{business.name}" %></p></br>
   <p><%= "Address: #{business.address}" %><p></br>
+
+  <%= image_tag("http://maps.googleapis.com/maps/api/streetview?size=400x200&heading=#{business.heading}&pitch=0&pano=#{business.pano}&sensor=false") %>
 <% end %>
