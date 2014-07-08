@@ -53,3 +53,15 @@ feature 'Business management' do
 		expect(page).to have_content "Index"
 	end
 end
+
+feature 'User Interaction' do
+	before :each do
+		@default = create(:default)
+	end
+
+	scenario "click link of a business in index" do
+		visit businesses_path
+		click_link 'Default Cafe'
+		expect(page).to have_content "Default Cafe"
+	end
+end
