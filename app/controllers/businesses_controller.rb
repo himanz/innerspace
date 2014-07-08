@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  before_action :set_business, only: [:show, :edit]
+  before_action :set_business, only: [:show, :edit, :update]
 
 	def index
 		if params[:letter]
@@ -33,6 +33,12 @@ class BusinessesController < ApplicationController
 	end
 
 	def update
+		respond_to do |format|
+			if @business.update(business_params)
+				format.html { redirect_to @business, notice: 'Business was successfully updated.' }
+				format.json { head :no_content }
+			end
+		end
 	end
 
 	private
