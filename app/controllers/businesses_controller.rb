@@ -37,6 +37,9 @@ class BusinessesController < ApplicationController
 			if @business.update(business_params)
 				format.html { redirect_to @business, notice: 'Business was successfully updated.' }
 				format.json { head :no_content }
+			else
+				format.html { render action: 'new' }
+				format.json { render json: @business.errors, status: :unprocessable_entity }
 			end
 		end
 	end
