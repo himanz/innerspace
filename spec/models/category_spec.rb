@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is a valid category with a name" do
+  	category = create(:category)
+  	expect(category).to be_valid
+  end
 end
