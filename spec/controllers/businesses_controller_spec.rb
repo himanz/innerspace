@@ -146,6 +146,10 @@ describe BusinessesController do
 		it "deletes the business" do
 			expect{ delete :destroy, id: @business}.to change(Business, :count).by(-1)
 		end
-		it "redirects to business#index"
+		
+		it "redirects to business#index" do
+			delete :destroy, id: @business
+			expect(response).to redirect_to businesses_url
+		end
 	end
 end
