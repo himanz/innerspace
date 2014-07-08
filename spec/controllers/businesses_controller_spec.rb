@@ -64,7 +64,11 @@ describe BusinessesController do
   		expect(assigns(:business)).to eq business
   	end
 
-  	it "renders the :edit template"
+  	it "renders the :edit template" do
+  		business = create(:business)
+  		get :edit, id: business
+  		expect(response).to render_template :edit
+  	end
   end
 
 	describe "POST #create" do
@@ -88,7 +92,7 @@ describe BusinessesController do
 				}.to_not change(Business, :count)
 			end
 
-			it "re-rendres the :new template" do
+			it "re-renders the :new template" do
 				post :create, business: attributes_for(:invalid_business)
 				expect(response).to render_template :new
 			end
