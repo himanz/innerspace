@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708183144) do
+ActiveRecord::Schema.define(version: 20140708193847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140708183144) do
     t.datetime "updated_at"
     t.string   "pano"
     t.decimal  "heading"
+    t.string   "cbp"
   end
 
 end
