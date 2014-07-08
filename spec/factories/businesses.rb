@@ -7,6 +7,7 @@ FactoryGirl.define do
     address { Faker::Address.street_address }
     pano "3L5NCiIf__oAAAQIt-clrA"
     heading 200
+    cbp ",191.0,,0,-0.0"
 
     factory :invalid_business do
   	  name nil
@@ -17,6 +18,7 @@ FactoryGirl.define do
     	address "1 Default Drive"
     	pano "3L5NCiIf__oAAAQIt-clrA"
     	heading 200
+    	cbp ",191.0,,0,-0.0"
     end
   end
 end
