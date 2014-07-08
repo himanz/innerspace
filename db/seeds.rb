@@ -6,5 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Business.create(name: "Pho 99", address: "123 Middlefield Road")
-Business.create(name: "Star Walk Cafe", address: "321 Star Walk Road")
+Business.create(name: "Sangri-La Hotel", address: "188 University Ave", heading: 200, pano: "3L5NCiIf__oAAAQIt-clrA")
