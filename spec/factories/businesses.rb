@@ -8,6 +8,7 @@ FactoryGirl.define do
     pano "3L5NCiIf__oAAAQIt-clrA"
     heading 200
     cbp ",191.0,,0,-0.0"
+    category_id 1
 
     factory :invalid_business do
   	  name nil
@@ -19,6 +20,7 @@ FactoryGirl.define do
     	pano "3L5NCiIf__oAAAQIt-clrA"
     	heading 200
     	cbp ",191.0,,0,-0.0"
+    	category_id 1
     end
   end
 end
