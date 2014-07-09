@@ -16,7 +16,7 @@ describe BusinessesController do
 			end
 		end
 
-		context 'without params[:letter]' do
+		context 'without params' do
 			it "populates an array of all businesses" do
 				pho = create(:business, name: 'Pho')
 				bob = create(:business, name: 'Bob')
