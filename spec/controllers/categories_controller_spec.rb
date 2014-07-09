@@ -28,4 +28,12 @@ describe CategoriesController do
   		expect(response).to render_template :show
   	end
   end
+
+  describe 'GET #new' do
+  	it "assigns a new category to @category" do
+  		get :new
+  		expect(assigns(:category)).to be_a_new(Category)
+  	end
+  	it "renders the :new template"
+  end
 end
