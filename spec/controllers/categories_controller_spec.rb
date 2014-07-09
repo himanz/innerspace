@@ -87,12 +87,18 @@ describe CategoriesController do
   	before :each do
   		@category = create(:category, name: "Park")
   	end
+
   	context "valid attributes" do
   		it "located the requested @category" do
   			patch :update, id: @category, category: attributes_for(:category)
   			expect(assigns(:category)).to eq(@category)
   		end
-  		it "changes @category's attributes"
+
+  		it "changes @category's attributes" do
+  			patch :update, id: @category, category: attributes_for(:category, name: "University")
+  			@category.reload
+  			expect(@category.name).to eq("University")
+  		end
   		it "redirects to the updated category"
   	end
 
