@@ -1,5 +1,10 @@
 <p>Index</p>
 
+<%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
+  <%= select_tag :category, options_from_collection_for_select(@category, "id", "name") %>
+  <%= submit_tag :Submit %>
+<% end %>
+
 <% @businesses.each do |business| %>
   <p><%= link_to business.name, business %></p>
   <p><%= "Address: #{business.address}" %><p></br>

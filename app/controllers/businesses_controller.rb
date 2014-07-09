@@ -2,6 +2,7 @@ class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
 
 	def index
+		@category = Category.all
 		if params[:letter]
 			@businesses = Business.by_letter(params[:letter])
 		elsif params[:category]
