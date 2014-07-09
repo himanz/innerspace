@@ -30,5 +30,14 @@ feature 'Category management' do
 			expect(page).to have_content 'College'
 		end
 	end
-	scenario "delete a category"
+
+	scenario "delete a category" do
+		visit edit_category_path(@default)
+		expect{
+			click_link 'Delete'
+		}.to change(Category, :count).by(-1)
+		expect(current_path).to eq categories_path
+		expect(page).to have_content "Category was succesfully deleted"
+		expect(page).to have_content "Index"
+	end
 end
