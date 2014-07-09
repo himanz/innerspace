@@ -71,7 +71,7 @@ feature 'User Interaction' do
 		create(:hotel2_business)
 		create(:park_business)
 		visit businesses_path
-		select("Hotel", :from => 'business-search')
+		select("Hotel", :from => 'category')
 		click_button 'Submit'
 		expect(page).to have_content "Holiday"
 		expect(page).to have_content "Ramada"
