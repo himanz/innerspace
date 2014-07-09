@@ -37,7 +37,7 @@ feature 'Category management' do
 			click_link 'Delete'
 		}.to change(Category, :count).by(-1)
 		expect(current_path).to eq categories_path
-		expect(page).to have_content "Category was succesfully deleted"
+		expect(page).to have_content "Category was successfully deleted"
 		expect(page).to have_content "Index"
 	end
 end
