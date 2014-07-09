@@ -64,4 +64,17 @@ feature 'User Interaction' do
 		click_link 'Default Cafe'
 		expect(page).to have_content "Default Cafe"
 	end
+
+	scenario "select hotel option to sort index by hotel" do
+		create(:default_category)
+		create(:hotel1_business)
+		create(:hotel2_business)
+		create(:park_business)
+		visit businesses_path
+		select("Hotel", :from => 'business-search')
+		click_button 'Submit'
+		expect(page).to have_content "Holiday"
+		expect(page).to have_content "Ramada"
+		expect(page).to_not have_content "Cherry"
+	end
 end
