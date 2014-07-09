@@ -121,7 +121,9 @@ describe CategoriesController do
   end
 
   describe 'DELETE #destroy' do
-  	it "deletes the category"
+  	it "deletes the category" do
+  		expect{delete :destroy, id: @category}.to change(Category, :count).by(-1)
+  	end
   	it "redirects to category#index"
   end
 end
