@@ -4,6 +4,8 @@ class BusinessesController < ApplicationController
 	def index
 		if params[:letter]
 			@businesses = Business.by_letter(params[:letter])
+		elsif params[:category]
+			@businesses = Business.by_category(params[:category])
 		else
 			@businesses = Business.order("name")
 		end
