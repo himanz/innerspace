@@ -12,4 +12,8 @@ class Business < ActiveRecord::Base
 	def self.by_letter(letter)
 		where("name LIKE ?", "#{letter}%").order(:name)
 	end
+
+	def self.by_category(category)
+		where(category_id: category)
+	end
 end

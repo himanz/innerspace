@@ -21,7 +21,7 @@ describe BusinessesController do
 				hotel1 = create(:hotel1_business)
 				hotel2 = create(:hotel2_business)
 				park = create(:park_business)
-				get :index, category: 1
+				get :index, category: "1"
 				expect(assigns(:businesses)).to match_array([hotel1, hotel2])
 			end
 			it "renders the :index view"
