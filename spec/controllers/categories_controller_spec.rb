@@ -57,7 +57,11 @@ describe CategoriesController do
 
   describe "POST #create" do
   	context "with valid attributes" do
-  		it "saves the new category in the database"
+  		it "saves the new category in the database" do
+  			expect{
+  				post :create, category: attributes_for(:category)
+  			}.to change(Category, :count).by(1)
+  		end
   		it "redirects to category #show"
   	end
 
