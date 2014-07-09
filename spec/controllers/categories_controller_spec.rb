@@ -75,7 +75,11 @@ describe CategoriesController do
   				post :create, category: attributes_for(:invalid_category)
   			}.to_not change(Category, :count)
   		end
-  		it "re-renders the :new template"
+
+  		it "re-renders the :new template" do
+  			post :create, category: attributes_for(:invalid_category)
+  			expect(response).to render_template :new
+  		end
   	end
   end
 end
