@@ -90,7 +90,7 @@ describe CategoriesController do
   			expect(assigns(:category)).to eq(@category)
   		end
   		it "changes @category's attributes"
-  		it "redirects to teh updated category"
+  		it "redirects to the updated category"
   	end
 
     context "with invalid attributes" do
