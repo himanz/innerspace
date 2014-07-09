@@ -7,6 +7,6 @@ describe Category do
   end
 
   it "is invalid without a name" do
-  	expect(Category.new(name: nil)).to have(1).errors_on(:name)
+  	expect(Category.new(name: nil)	).to have(1).errors_on(:name)
   end
 end
