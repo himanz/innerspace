@@ -24,7 +24,11 @@ describe BusinessesController do
 				get :index, category: "1"
 				expect(assigns(:businesses)).to match_array([hotel1, hotel2])
 			end
-			it "renders the :index view"
+
+			it "renders the :index view" do
+				get :index, category: "1"
+				expect(response).to render_template :index
+			end
 		end
 
 		context 'without params' do
