@@ -9,11 +9,26 @@ class CategoriesController < ApplicationController
 	end
 
 	def new
+		@category = Category.new
 	end
+
+	def create
+		@category = Category.new(category_params)
+		respond_to do |format|
+			if @categories.save
+				format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @category }
+			end
+		end
+  end
 
 	private
 
 	def set_category
 		@category = Category.find(params[:id])
+	end
+
+	def category_params
+		params.require(:category).permit(:name)
 	end
 end
