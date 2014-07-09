@@ -6,10 +6,8 @@ feature 'Business management' do
 	end
 
 	scenario "add a new business" do		
-		2.times do
-       create(:category)  
-		end
-
+    create(:default_category)  
+		
 	  visit new_business_path
 	  expect {
 	  	fill_in 'Name', with: @default.name
@@ -17,7 +15,7 @@ feature 'Business management' do
 	  	fill_in 'Heading', with: @default.heading
 	  	fill_in 'Pano', with: @default.pano
 	  	fill_in 'Cbp', with: @default.cbp
-	  	select("2", :from => 'business_category_id') 
+	  	select("Hotel", :from => 'business_category_id')
 	  	click_button 'Submit'
 	  }.to change(Business, :count).by(1)
 	  expect(current_path).to eq business_path((@default.id + 1))
