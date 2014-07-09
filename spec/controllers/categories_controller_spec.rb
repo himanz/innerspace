@@ -21,6 +21,11 @@ describe CategoriesController do
   		get :show, id: category
   		expect(assigns(:category)).to eq category
   	end
-  	it "renders the :show template"
+
+  	it "renders the :show template" do
+  		category = create(:category)
+  		get :show, id: category
+  		expect(response).to render_template :show
+  	end
   end
 end
