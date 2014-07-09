@@ -124,10 +124,14 @@ describe CategoriesController do
   	before :each do
   		@category = create(:category)
   	end
-  	
+
   	it "deletes the category" do
   		expect{delete :destroy, id: @category}.to change(Category, :count).by(-1)
   	end
-  	it "redirects to category#index"
+
+  	it "redirects to category#index" do
+  		delete :destroy, id: @category
+  		expect(response).to redirect_to categories_url
+  	end
   end
 end
