@@ -22,5 +22,15 @@ FactoryGirl.define do
     	cbp ",191.0,,0,-0.0"
     	category_id 1
     end
+
+    factory :hotel1_business do
+    end
+
+    factory :hotel2_business do
+    end
+
+    factory :park_business do
+        category_id 2
+    end
   end
 end

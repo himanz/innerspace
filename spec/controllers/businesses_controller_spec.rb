@@ -17,7 +17,13 @@ describe BusinessesController do
 		end
 
 		context 'with params[:category]' do
-			it "populates an array of businesses with the same category"
+			it "populates an array of businesses with the same category" do
+				hotel1 = create(:hotel1_business)
+				hotel2 = create(:hotel2_business)
+				park = create(:park_business)
+				get :index, category: 1
+				expect(assigns(:businesses)).to match_array([hotel1, hotel2])
+			end
 			it "renders the :index view"
 		end
 
