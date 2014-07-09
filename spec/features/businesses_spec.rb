@@ -35,12 +35,14 @@ feature 'Business management' do
 	end
 
 	scenario "edit a business" do
+		create(:default_category)
 		visit edit_business_path(@default)
 		expect{
 		  fill_in 'Name', with: 'Yum Bar'
+		  select('Hotel', :from => 'business_category_id')
 		  click_button 'Submit'
 		}.to_not change(Business, :count)
-		expect(current_path).to eq business_path(@default.id)
+		expect(current_path).to eq business_path(@default)
 		expect(page).to have_content "Business was successfully updated."
 		within 'h1' do
 			expect(page).to have_content 'Yum Bar'
