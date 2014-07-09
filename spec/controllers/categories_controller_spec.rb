@@ -70,7 +70,7 @@ describe CategoriesController do
   	end
 
   	context "with invalid attributes" do
-  		it "does not save the new business in the database" do
+  		it "does not save the new category in the database" do
   			expect{
   				post :create, category: attributes_for(:invalid_category)
   			}.to_not change(Category, :count)
@@ -81,5 +81,18 @@ describe CategoriesController do
   			expect(response).to render_template :new
   		end
   	end
+  end
+
+  describe 'PATCH #update' do
+  	context "valid attributes" do
+  		it "located the requested @category"
+  		it "changes @category's attributes"
+  		it "redirects to teh updated category"
+  	end
+
+    context "with invalid attributes" do
+    	it "does not change the category's attributes"
+    	it "re-renders the edit template"
+    end
   end
 end
