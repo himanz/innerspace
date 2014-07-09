@@ -15,5 +15,7 @@
   <%= f.label :cbp %>
   <%= f.text_field :cbp %>
 
+  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+
   <%= f.submit :Submit %>
 <% end %>
