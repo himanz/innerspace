@@ -112,8 +112,16 @@ describe CategoriesController do
     		@category.reload
     		expect(@category.name).to eq("Park")
     	end
-    	
-    	it "re-renders the edit template"
+
+    	it "re-renders the edit template" do
+    		patch :update, id: @category, category: attributes_for(:invalid_category)
+    		expect(response).to render_template :edit
+    	end
     end
+  end
+
+  describe 'DELETE #destroy' do
+  	it "deletes the category"
+  	it "redirects to category#index"
   end
 end
