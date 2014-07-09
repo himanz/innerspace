@@ -99,7 +99,11 @@ describe CategoriesController do
   			@category.reload
   			expect(@category.name).to eq("University")
   		end
-  		it "redirects to the updated category"
+
+  		it "redirects to the updated category" do
+  			patch :update, id: @category, category: attributes_for(:category)
+  			expect(response).to redirect_to @category
+  		end
   	end
 
     context "with invalid attributes" do
