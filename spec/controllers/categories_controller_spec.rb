@@ -121,6 +121,10 @@ describe CategoriesController do
   end
 
   describe 'DELETE #destroy' do
+  	before :each do
+  		@category = create(:category)
+  	end
+  	
   	it "deletes the category" do
   		expect{delete :destroy, id: @category}.to change(Category, :count).by(-1)
   	end
