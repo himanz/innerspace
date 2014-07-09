@@ -2,19 +2,23 @@
 
 FactoryGirl.define do
   
+  sequence :name do |n| 
+  	"Bar#{n}" 
+  end
+  
   factory :category do
-    name { Faker::Commerce.department }
+    name { FactoryGirl.generate(:name) }
+
+    factory :invalid_category do
+  	  name nil
+    end
+
+    factory :default_category do
+  	  name "Hotel"
+    end
+
+    
   end
 
-  sequence :sequence_category do |n|
-    "Bar#{n}"
-  end
-
-  factory :invalid_category do
-  	name nil
-  end
-
-  factory :default_category do
-  	name "Hotel"
-  end
+  
 end

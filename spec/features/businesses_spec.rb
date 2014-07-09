@@ -6,11 +6,11 @@ feature 'Business management' do
 	end
 
 	scenario "add a new business" do		
-		@category_array = []
 		2.times do
-       hold = generate :sequence_category
-       @category_array.push(hold)
+       create(:category)  
 		end
+
+		# category = create(:default_category)
 
 	  # visit new_business_path
 	  # fill_in 'Name', with: @default.name
