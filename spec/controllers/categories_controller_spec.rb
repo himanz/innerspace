@@ -85,7 +85,10 @@ describe CategoriesController do
 
   describe 'PATCH #update' do
   	context "valid attributes" do
-  		it "located the requested @category"
+  		it "located the requested @category" do
+  			patch :update, id: @category, category: attributes_for(:category)
+  			expect(assigns(:category)).to eq(@category)
+  		end
   		it "changes @category's attributes"
   		it "redirects to teh updated category"
   	end
