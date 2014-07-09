@@ -54,4 +54,16 @@ describe CategoriesController do
   		expect(response).to render_template :edit
   	end
   end
+
+  describe "POST #create" do
+  	context "with valid attributes" do
+  		it "saves the new category in the database"
+  		it "redirects to category #show"
+  	end
+
+  	context "with invalid attributes" do
+  		it "does not save the new business in the database"
+  		it "re-renders the :new template"
+  	end
+  end
 end
