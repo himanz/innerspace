@@ -9,6 +9,9 @@ describe CategoriesController do
     	expect(assigns(:categories)).to match_array([bar, hotel])
     end
 
-    it "renders the :index view"
+    it "renders the :index view" do
+    	get :index
+    	expect(response).to render_template :index
+    end
   end
 end
