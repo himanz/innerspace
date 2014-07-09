@@ -62,7 +62,11 @@ describe CategoriesController do
   				post :create, category: attributes_for(:category)
   			}.to change(Category, :count).by(1)
   		end
-  		it "redirects to category #show"
+
+  		it "redirects to category #show" do
+  			post :create, category: attributes_for(:category)
+  			expect(response).to redirect_to category_path(assigns(:category))
+  		end
   	end
 
   	context "with invalid attributes" do
