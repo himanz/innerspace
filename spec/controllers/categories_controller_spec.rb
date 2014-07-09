@@ -47,6 +47,11 @@ describe CategoriesController do
   		get :edit, id: category
   		expect(assigns(:category)).to eq category
   	end
-  	it "renders the :edit template"
+
+  	it "renders the :edit template" do
+  		category = create(:category)
+  		get :edit, id: category
+  		expect(response).to render_template :edit
+  	end
   end
 end
