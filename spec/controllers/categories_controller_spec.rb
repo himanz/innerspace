@@ -107,7 +107,12 @@ describe CategoriesController do
   	end
 
     context "with invalid attributes" do
-    	it "does not change the category's attributes"
+    	it "does not change the category's attributes" do
+    		patch :update, id: @category, category: attributes_for(:category, name: nil)
+    		@category.reload
+    		expect(@category.name).to eq("Park")
+    	end
+    	
     	it "re-renders the edit template"
     end
   end
