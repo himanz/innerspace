@@ -84,6 +84,9 @@ describe CategoriesController do
   end
 
   describe 'PATCH #update' do
+  	before :each do
+  		@category = create(:category, name: "Park")
+  	end
   	context "valid attributes" do
   		it "located the requested @category" do
   			patch :update, id: @category, category: attributes_for(:category)
