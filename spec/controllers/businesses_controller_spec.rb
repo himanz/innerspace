@@ -16,6 +16,11 @@ describe BusinessesController do
 			end
 		end
 
+		context 'with params[:category]' do
+			it "populates an array of businesses with the same category"
+			it "renders the :index view"
+		end
+
 		context 'without params' do
 			it "populates an array of all businesses" do
 				pho = create(:business, name: 'Pho')
