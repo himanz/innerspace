@@ -11,7 +11,7 @@ feature 'Category management' do
 			fill_in 'Name', with: @default.name
 			click_button 'Submit'
 		}.to change(Category, :count).by(1)
-		expect(current_path).to eq category_path((@default.id +1))
+		expect(current_path).to eq category_path(@default.id + 1)
 		expect(page).to have_content "Category was successfully created"
 		within 'h1' do
 			expect(page).to have_content 'Hotel'
