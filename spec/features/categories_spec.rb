@@ -17,6 +17,18 @@ feature 'Category management' do
 			expect(page).to have_content 'Hotel'
 		end
 	end
-	scenario "edit a category"
+
+	scenario "edit a category" do
+		visit edit_category_path(@default)
+		expect{
+			fill_in 'Name', with: 'College'
+			click_button 'Submit'
+		}.to_not change(Category, :count)
+		expect(current_path).to eq category_path(@default)
+		expect(page).to have_content "Category was successfully updated"
+		within 'h1' do
+			expect(page).to have_content 'College'
+		end
+	end
 	scenario "delete a category"
 end
