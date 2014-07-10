@@ -65,6 +65,7 @@ feature 'User Interaction' do
 		expect(page).to have_content "Default Cafe"
 	end
 
+  # Work on this to make the correct test pass
 	scenario "select hotel option to sort index by hotel" do
 		create(:default_category)
 		create(:category, name: "Park")
