@@ -25,10 +25,12 @@ FactoryGirl.define do
 
     factory :hotel1_business do
       name "Holiday"
+      category_id 1
     end
 
     factory :hotel2_business do
       name "Ramada"
+      category_id 1
     end
 
     factory :park_business do
