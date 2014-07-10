@@ -65,7 +65,8 @@ feature 'User Interaction' do
 		expect(page).to have_content "Default Cafe"
 	end
 
-  # Work on this to make the correct test pass
+  # Work on this to make the correct test pass.  After submit
+  # button click, no results are displayed
 	scenario "select hotel option to sort index by hotel" do
 		create(:default_category)
 		create(:category, name: "Park")
