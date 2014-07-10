@@ -3,11 +3,10 @@ require 'spec_helper'
 feature 'Business management' do
 	before :each do
 		@default = create(:default)
+		create(:default_category)
 	end
 
-	scenario "add a new business" do		
-    create(:default_category)  
-		
+	scenario "add a new business" do		  
 	  visit new_business_path
 	  expect {
 	  	fill_in 'Name', with: @default.name
@@ -26,7 +25,6 @@ feature 'Business management' do
 	end
 
 	scenario "edit a business" do
-		create(:default_category)
 		visit edit_business_path(@default)
 		expect{
 		  fill_in 'Name', with: 'Yum Bar'
