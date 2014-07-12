@@ -1,4 +1,5 @@
 Innerspace::Application.routes.draw do
+  root to: "businesses#index"
   resources :businesses
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
