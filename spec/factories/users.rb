@@ -3,8 +3,7 @@
 FactoryGirl.define do
   factory :user do
   	email "jon@jon.com"
-  	password "123456"
-  	password_confirmation "123456"
+  	password "12345678"
 
   	factory :invalid_user do
   		email nil
@@ -12,8 +11,7 @@ FactoryGirl.define do
 
   	factory :default_user do
   		email "default@default.com"
-  		password "default"
-  		password_confirmation "default"
+  		password "12345678"
   	end
   end
 end
