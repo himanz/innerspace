@@ -13,5 +13,10 @@ FactoryGirl.define do
   		email "default@default.com"
   		password "12345678"
   	end
+
+  	factory :admin_user do
+  		email "admin@admin.com"
+  		admin "true"
+  	end
   end
 end
