@@ -24,7 +24,16 @@ feature 'User management' do
   	click_button 'Sign in'
   	expect(page).to have_content "Signed in successfully."
   end
-  scenario "user logout"
+
+  scenario "user logout" do
+  	visit root_path
+  	click_link "Login"
+  	fill_in 'user_email', with: @default.email
+  	fill_in 'user_password', with: @default.password
+  	click_button 'Sign in'
+  	click_link "Logout"
+  	expect(page).to have_content "Signed out successfully."
+  end
 	scenario "edit a user"
 	
 end
