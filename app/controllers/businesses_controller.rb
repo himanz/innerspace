@@ -68,11 +68,7 @@ class BusinessesController < ApplicationController
 	end
 
 	def check_admin
-		if current_user
-			unless current_user.admin?
-			  redirect_to businesses_path, notice: "You need admin status to access the previous page."
-		  end
-		else
+		unless current_user && current_user.admin
 			redirect_to businesses_path, notice: "You need admin status to access the previous page."
 		end
 	end
