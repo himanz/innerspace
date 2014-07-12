@@ -34,6 +34,18 @@ feature 'User management' do
   	click_link "Logout"
   	expect(page).to have_content "Signed out successfully."
   end
-	scenario "edit a user"
+
+	scenario "edit a user" do
+		visit root_path
+  	click_link "Login"
+  	fill_in 'user_email', with: @default.email
+  	fill_in 'user_password', with: @default.password
+  	click_button 'Sign in'
+		click_link "edit profile"
+		fill_in 'user_email', with: "jon@jon.com"
+		fill_in 'user_current_password', with: @default.password
+		click_button "Update"
+		expect(page).to have_content "jon@jon.com"
+	end
 	
 end
