@@ -1,5 +1,7 @@
 class BusinessesController < ApplicationController
+	 
   before_action :set_business, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin, except: [:index, :show]
 
 	def index
 		@category = Category.all
@@ -63,5 +65,15 @@ class BusinessesController < ApplicationController
 	
 	def business_params
 		params.require(:business).permit(:name, :address, :heading, :pano, :cbp, :category_id)
+	end
+
+	def check_admin
+		if current_user
+			unless current_user.admin?
+			  redirect_to businesses_path, notice: "You need admin status to access the previous page."
+		  end
+		else
+			redirect_to businesses_path, notice: "You need admin status to access the previous page."
+		end
 	end
 end
