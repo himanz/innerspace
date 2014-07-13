@@ -25,6 +25,12 @@ feature 'User management' do
   	expect(page).to have_content "Signed in successfully."
   end
 
+  scenario "sign in with facebook" do
+    visit root_path
+    click_link "Sign in with Facebook"
+    expect(page).to have_content "Successfully authenticated from Facebook account."
+  end
+
   scenario "user logout" do
   	visit root_path
   	click_link "Login"
