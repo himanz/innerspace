@@ -302,6 +302,8 @@ describe BusinessesController do
     	user = create(:admin_user)
     	sign_in user
     end
+    
+    it_behaves_like "full access to businesses"
 	end
 
 	describe "user access" do
