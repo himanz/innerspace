@@ -80,12 +80,8 @@ feature 'Business management' do
 
 		scenario "delete a business" do
 			visit edit_business_path(@default)
-			expect{
-				click_link 'Delete'
-			}.to change(Business, :count).by(-1)
 			expect(current_path).to eq  businesses_path
-			expect(page).to have_content "Business was successfully deleted"
-			expect(page).to have_content "Index"
+			expect(page).to have_content "You need admin status to access the previous page."
 		end
   end
 end
