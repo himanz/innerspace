@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+OmniAuth.config.test_mode = true
+
 feature 'User management' do
   before :each do
   	@default = create(:default_user)
@@ -28,6 +30,7 @@ feature 'User management' do
   scenario "sign in with facebook" do
     visit root_path
     click_link "Sign in with Facebook"
+
     expect(page).to have_content "Successfully authenticated from Facebook account."
   end
 

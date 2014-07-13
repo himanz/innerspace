@@ -18,5 +18,9 @@ FactoryGirl.define do
   		email "admin@admin.com"
   		admin true
   	end
+
+  	trait :with_facebook_account do
+  		create(:user_account), :facebook, user: user
+  	end
   end
 end
