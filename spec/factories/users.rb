@@ -19,10 +19,10 @@ FactoryGirl.define do
   		admin true
   	end
 
-  	trait :with_facebook_account do
-  		after(:create) do |user|
-	  		create(:user_account, :facebook, user: user)
-	  	end
-  	end
+    # for testing facebook login
+  	# factory :facebook_user do
+	  # 	provider 'facebook'
+		 #  uid 'facebook-user-id'
+  	# end
   end
 end
