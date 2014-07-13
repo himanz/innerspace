@@ -1,7 +1,12 @@
 require 'spec_helper'
 
+include Warden::Test::Helpers
+Warden.test_mode!
+
 feature 'Business management' do
 	before :each do
+		user = create(:admin_user)
+		login_as(user)
 		@default = create(:default)
 		create(:default_category)
 	end
