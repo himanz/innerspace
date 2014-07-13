@@ -241,14 +241,14 @@ describe BusinessesController do
 		end
 
 		describe 'GET #new' do
-			it "redirect to the businesses index" do
+			it "requires admin status for user" do
 				get :new
 				expect(response).to redirect_to businesses_url
 			end
 		end
 	  
 	  describe 'GET #edit' do
-	  	it "redirects to the businesses index" do
+	  	it "requires admin status for user" do
 	  		business = create(:business)
 	  		get :edit, id: business
 	  		expect(response).to redirect_to businesses_url
@@ -281,7 +281,7 @@ describe BusinessesController do
 		# 			expect(response).to render_template :new
 		# 		end
 		# 	end
-		# end
+		end
 
 		# describe 'PATCH #update' do
 		# 	before :each do
