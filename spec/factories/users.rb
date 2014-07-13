@@ -20,7 +20,9 @@ FactoryGirl.define do
   	end
 
   	trait :with_facebook_account do
-  		create(:user_account), :facebook, user: user
+  		after(:create) do |user|
+	  		create(:user_account, :facebook, user: user)
+	  	end
   	end
   end
 end
