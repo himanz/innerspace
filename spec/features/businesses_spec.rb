@@ -84,6 +84,31 @@ feature 'Business management' do
 			expect(page).to have_content "You need admin status to access the previous page."
 		end
   end
+
+  describe "guest access" do
+  	before :each do
+			@default = create(:default)
+			create(:default_category)
+		end
+
+		scenario "add a new business" do		  
+		  visit new_business_path
+		  expect(current_path).to eq businesses_path
+		  expect(page).to have_content "You need admin status to access the previous page."
+		end
+
+		scenario "edit a business" do
+			visit edit_business_path(@default)
+			expect(current_path).to eq businesses_path
+			expect(page).to have_content "You need admin status to access the previous page."
+		end
+
+		scenario "delete a business" do
+			visit edit_business_path(@default)
+			expect(current_path).to eq  businesses_path
+			expect(page).to have_content "You need admin status to access the previous page."
+		end
+  end
 end
 
 feature 'User Interaction' do
