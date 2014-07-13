@@ -1,10 +1,12 @@
 FactoryGirl.define do
-	user
+	factory :user_account do
+		user
 
-	provider 'facebook'
-	uid 'facebook-user-id'
-
-	trait :facebook do
 		provider 'facebook'
+		uid 'facebook-user-id'
+
+		trait :facebook do
+			provider 'facebook'
+		end
 	end
 end

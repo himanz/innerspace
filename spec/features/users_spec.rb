@@ -18,7 +18,7 @@ feature 'User management' do
 		}.to change(User, :count).by(1)
 	end
   
-  scenario "user login" do
+  scenario "user login" do 
   	visit root_path
   	click_link "Login"
   	fill_in 'user_email', with: @default.email
@@ -28,6 +28,7 @@ feature 'User management' do
   end
 
   scenario "sign in with facebook" do
+    create(:user, :with_facebook_account)
     visit root_path
     click_link "Sign in with Facebook"
 
