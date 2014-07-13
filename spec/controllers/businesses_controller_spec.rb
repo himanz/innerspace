@@ -247,19 +247,13 @@ describe BusinessesController do
 			end
 		end
 	  
-	 #  describe 'GET #edit' do
-	 #  	it "assigns the requested business to @business" do
-	 #  		business = create(:business)
-	 #  		get :edit, id: business
-	 #  		expect(assigns(:business)).to eq business
-	 #  	end
-
-	 #  	it "renders the :edit template" do
-	 #  		business = create(:business)
-	 #  		get :edit, id: business
-	 #  		expect(response).to render_template :edit
-	 #  	end
-	 #  end
+	  describe 'GET #edit' do
+	  	it "redirects to the businesses index" do
+	  		business = create(:business)
+	  		get :edit, id: business
+	  		expect(response).to redirect_to businesses_url
+	  	end
+	  end
 
 		# describe "POST #create" do
 		# 	context "with valid attributes" do
