@@ -268,44 +268,28 @@ describe BusinessesController do
 		  end
 		end
 
-		# describe 'PATCH #update' do
-		# 	before :each do
-		# 		@business = create(:business, name: "Star Walk", address: "12 Star Walk Drive")
-		# 	end
+		describe 'PATCH #update' do
+			before :each do
+				@business = create(:business, name: "Star Walk", address: "12 Star Walk Drive")
+			end
+	
+			it "located the requested @business" do
+				patch :update, id: @business, business: attributes_for(:business)
+				expect(assigns(:business)).to eq(@business)
+			end
 
-		# 	context "valid attributes" do
-		# 		it "located the requested @business" do
-		# 			patch :update, id: @business, business: attributes_for(:business)
-		# 			expect(assigns(:business)).to eq(@business)
-		# 		end
+			it "does not change @business' attributes" do
+				patch :update, id: @business, business: attributes_for(:business, name: "Moon Walk", address: "12 Star Walk Drive")
+				@business.reload
+				expect(@business.name).to eq("Star Walk")
+				expect(@business.address).to eq("12 Star Walk Drive")
+			end
 
-		# 		it "changes @business' attributes" do
-		# 			patch :update, id: @business, business: attributes_for(:business, name: "Moon Walk", address: "12 Star Walk Drive")
-		# 			@business.reload
-		# 			expect(@business.name).to eq("Moon Walk")
-		# 			expect(@business.address).to eq("12 Star Walk Drive")
-		# 		end
-
-		# 		it "redirects to the updated business" do
-		# 			patch :update, id: @business, business: attributes_for(:business)
-		# 			expect(response).to redirect_to @business
-		# 		end
-		# 	end
-
-		# 	context "with invalid attributes" do
-		# 		it "does not change the business' attributes" do
-		# 			patch :update, id: @business, business: attributes_for(:business, name: "Moon Walk", address: nil)
-		# 			@business.reload
-		# 			expect(@business.name).to_not eq("Moon Walk")
-		# 			expect(@business.address).to eq("12 Star Walk Drive")
-		# 		end
-
-		# 		it "re-renders the edit template" do
-		# 			patch :update, id: @business, business: attributes_for(:invalid_business)
-		# 			expect(response).to render_template :edit
-		# 		end
-		# 	end
-		# end
+			it "redirects to businesses index" do
+				patch :update, id: @business, business: attributes_for(:business)
+				expect(response).to redirect_to businesses_url
+			end		
+		end
 
 		# describe 'DELETE #destroy' do
 		# 	before :each do
