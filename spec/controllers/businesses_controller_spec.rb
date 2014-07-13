@@ -308,7 +308,7 @@ describe BusinessesController do
     	sign_in user
     end
 
-    # it_behaves_like "public access to businesses"
+    it_behaves_like "public access to businesses"
   end
 
 		
