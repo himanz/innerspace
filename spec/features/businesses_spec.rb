@@ -4,57 +4,101 @@ include Warden::Test::Helpers
 Warden.test_mode!
 
 feature 'Business management' do
-	before :each do
-		user = create(:admin_user)
-		login_as(user)
-		@default = create(:default)
-		create(:default_category)
-	end
-
-	scenario "add a new business" do		  
-	  visit new_business_path
-	  expect {
-	  	fill_in 'Name', with: @default.name
-	  	fill_in 'Address', with: @default.address
-	  	fill_in 'Heading', with: @default.heading
-	  	fill_in 'Pano', with: @default.pano
-	  	fill_in 'Cbp', with: @default.cbp
-	  	select("Hotel", :from => 'business_category_id')
-	  	click_button 'Submit'
-	  }.to change(Business, :count).by(1)
-	  expect(current_path).to eq business_path((@default.id + 1))
-	  expect(page).to have_content "Business was successfully created"
-	  within 'h1' do
-	  	expect(page).to have_content 'Default Cafe'
-	  end
-	end
-
-	scenario "edit a business" do
-		visit edit_business_path(@default)
-		expect{
-		  fill_in 'Name', with: 'Yum Bar'
-		  select('Hotel', :from => 'business_category_id')
-		  click_button 'Submit'
-		}.to_not change(Business, :count)
-		expect(current_path).to eq business_path(@default)
-		expect(page).to have_content "Business was successfully updated."
-		within 'h1' do
-			expect(page).to have_content 'Yum Bar'
+	describe "admin access" do
+		before :each do
+			user = create(:admin_user)
+			login_as(user)
+			@default = create(:default)
+			create(:default_category)
 		end
-		within 'p' do
-			expect(page).to have_content '1 Default Drive'
-		end
-	end
 
-	scenario "delete a business" do
-		visit edit_business_path(@default)
-		expect{
-			click_link 'Delete'
-		}.to change(Business, :count).by(-1)
-		expect(current_path).to eq  businesses_path
-		expect(page).to have_content "Business was successfully deleted"
-		expect(page).to have_content "Index"
-	end
+		scenario "add a new business" do		  
+		  visit new_business_path
+		  expect {
+		  	fill_in 'Name', with: @default.name
+		  	fill_in 'Address', with: @default.address
+		  	fill_in 'Heading', with: @default.heading
+		  	fill_in 'Pano', with: @default.pano
+		  	fill_in 'Cbp', with: @default.cbp
+		  	select("Hotel", :from => 'business_category_id')
+		  	click_button 'Submit'
+		  }.to change(Business, :count).by(1)
+		  expect(current_path).to eq business_path((@default.id + 1))
+		  expect(page).to have_content "Business was successfully created"
+		  within 'h1' do
+		  	expect(page).to have_content 'Default Cafe'
+		  end
+		end
+
+		scenario "edit a business" do
+			visit edit_business_path(@default)
+			expect{
+			  fill_in 'Name', with: 'Yum Bar'
+			  select('Hotel', :from => 'business_category_id')
+			  click_button 'Submit'
+			}.to_not change(Business, :count)
+			expect(current_path).to eq business_path(@default)
+			expect(page).to have_content "Business was successfully updated."
+			within 'h1' do
+				expect(page).to have_content 'Yum Bar'
+			end
+			within 'p' do
+				expect(page).to have_content '1 Default Drive'
+			end
+		end
+
+		scenario "delete a business" do
+			visit edit_business_path(@default)
+			expect{
+				click_link 'Delete'
+			}.to change(Business, :count).by(-1)
+			expect(current_path).to eq  businesses_path
+			expect(page).to have_content "Business was successfully deleted"
+			expect(page).to have_content "Index"
+		end
+  end
+
+  describe "user access" do
+		before :each do
+			user = create(:user)
+			login_as(user)
+			@default = create(:default)
+			create(:default_category)
+		end
+
+		scenario "add a new business" do		  
+		  visit new_business_path
+		  expect(current_path).to eq businesses_path
+		  expect(page).to have_content "You need admin status to access the previous page."
+		end
+
+		scenario "edit a business" do
+			visit edit_business_path(@default)
+			expect{
+			  fill_in 'Name', with: 'Yum Bar'
+			  select('Hotel', :from => 'business_category_id')
+			  click_button 'Submit'
+			}.to_not change(Business, :count)
+			expect(current_path).to eq business_path(@default)
+			expect(page).to have_content "Business was successfully updated."
+			within 'h1' do
+				expect(page).to have_content 'Yum Bar'
+			end
+			within 'p' do
+				expect(page).to have_content '1 Default Drive'
+			end
+		end
+
+		scenario "delete a business" do
+			visit edit_business_path(@default)
+			expect{
+				click_link 'Delete'
+			}.to change(Business, :count).by(-1)
+			expect(current_path).to eq  businesses_path
+			expect(page).to have_content "Business was successfully deleted"
+			expect(page).to have_content "Index"
+		end
+  end
 end
 
 feature 'User Interaction' do
