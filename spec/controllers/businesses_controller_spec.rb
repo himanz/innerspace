@@ -241,7 +241,7 @@ describe BusinessesController do
 		end
 
 		describe 'GET #new' do
-			it "requires admin status for user" do
+			it "redirects to businesses index due to not admin" do
 				get :new
 				expect(response).to redirect_to businesses_url
 			end
@@ -262,7 +262,7 @@ describe BusinessesController do
 				}.to change(Business, :count).by(0)
 			end
 
-			it "requires admin status for user" do
+			it "redirects to businesses index due to not admin" do
 				post :create, business: attributes_for(:business)
 				expect(response).to redirect_to businesses_url
 		  end
@@ -285,7 +285,7 @@ describe BusinessesController do
 				expect(@business.address).to eq("12 Star Walk Drive")
 			end
 
-			it "redirects to businesses index" do
+			it "redirects to businesses index due to not admin" do
 				patch :update, id: @business, business: attributes_for(:business)
 				expect(response).to redirect_to businesses_url
 			end		
