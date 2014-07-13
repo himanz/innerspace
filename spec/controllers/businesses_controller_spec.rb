@@ -128,12 +128,7 @@ describe BusinessesController do
 		end
 	end
 
-	describe "administrator access" do
-    before :each do
-    	user = create(:admin_user)
-    	sign_in user
-    end
-
+	shared_examples("full access to businesses") do
 		describe 'GET #index' do
 			context 'with params[:letter]' do
 				it "populates an array of businesses starting with the letter" do
@@ -300,6 +295,13 @@ describe BusinessesController do
 				expect(response).to redirect_to businesses_url
 			end
 		end
+	end
+
+	describe "administrator access" do
+    before :each do
+    	user = create(:admin_user)
+    	sign_in user
+    end
 	end
 
 	describe "user access" do
