@@ -255,32 +255,17 @@ describe BusinessesController do
 	  	end
 	  end
 
-		# describe "POST #create" do
-		# 	context "with valid attributes" do
-		# 		it "saves the new business in the database" do
-		# 			expect{
-		# 				post :create, business: attributes_for(:business)
-		# 			}.to change(Business, :count).by(1)
-		# 		end
+		describe "POST #create" do
+			it "does not save the new business in the database" do
+				expect{
+					post :create, business: attributes_for(:business)
+				}.to change(Business, :count).by(0)
+			end
 
-		# 		it "redirects to business#show" do
-		# 			post :create, business: attributes_for(:business)
-		# 			expect(response).to redirect_to business_path(assigns(:business))
-		# 		end
-		# 	end
-
-		# 	context "with invalid attributes" do
-		# 		it "does not save the new business in the database" do
-		# 			expect{
-		# 				post :create, business: attributes_for(:invalid_business)
-		# 			}.to_not change(Business, :count)
-		# 		end
-
-		# 		it "re-renders the :new template" do
-		# 			post :create, business: attributes_for(:invalid_business)
-		# 			expect(response).to render_template :new
-		# 		end
-		# 	end
+			it "requires admin status for user" do
+				post :create, business: attributes_for(:business)
+				expect(response).to redirect_to businesses_url
+		  end
 		end
 
 		# describe 'PATCH #update' do
