@@ -13,9 +13,7 @@ feature 'Category management' do
 		}.to change(Category, :count).by(1)
 		expect(current_path).to eq category_path(@default.id + 1)
 		expect(page).to have_content "Category was successfully created"
-		within 'h1' do
-			expect(page).to have_content 'Hotel'
-		end
+		expect(page).to have_content 'Hotel'
 	end
 
 	scenario "edit a category" do
@@ -26,9 +24,7 @@ feature 'Category management' do
 		}.to_not change(Category, :count)
 		expect(current_path).to eq category_path(@default)
 		expect(page).to have_content "Category was successfully updated"
-		within 'h1' do
-			expect(page).to have_content 'College'
-		end
+		expect(page).to have_content 'College'
 	end
 
 	scenario "delete a category" do
