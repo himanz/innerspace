@@ -1,11 +1,14 @@
 <p>Index</p>
 
+
 <%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
   <%= select_tag :category, options_from_collection_for_select(@category, "id", "name") %>
   <%= submit_tag :Submit %>
 <% end %>
 
-<div class="row">
+
+
+<!-- <div class="row"> -->
 	<% @businesses.each do |business| %>
     <div class="large-4 columns">
 	    <p><%= link_to business.name, business %></p>
@@ -14,4 +17,4 @@
 		  <%= link_to image_tag("http://maps.googleapis.com/maps/api/streetview?size=400x200&heading=#{business.heading}&pitch=0&pano=#{business.pano}&sensor=false&key=#{ENV['google_maps_api_key']}"), "https://maps.google.com/maps?layer=c&panoid=#{business.pano}&cbp=#{business.cbp}&source=embed&output=svembedmfe" %>
 	  </div>
   <% end %>
-</div>
+<!-- </div> -->
