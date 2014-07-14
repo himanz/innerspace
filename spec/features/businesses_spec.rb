@@ -25,9 +25,7 @@ feature 'Business management' do
 		  }.to change(Business, :count).by(1)
 		  expect(current_path).to eq business_path((@default.id + 1))
 		  expect(page).to have_content "Business was successfully created"
-		  within 'h1' do
-		  	expect(page).to have_content 'Default Cafe'
-		  end
+		  expect(page).to have_content 'Default Cafe'
 		end
 
 		scenario "edit a business" do
@@ -39,12 +37,9 @@ feature 'Business management' do
 			}.to_not change(Business, :count)
 			expect(current_path).to eq business_path(@default)
 			expect(page).to have_content "Business was successfully updated."
-			within 'h1' do
-				expect(page).to have_content 'Yum Bar'
-			end
-			within 'p' do
-				expect(page).to have_content '1 Default Drive'
-			end
+			expect(page).to have_content 'Yum Bar'
+			expect(page).to have_content '1 Default Drive'
+			
 		end
 
 		scenario "delete a business" do
