@@ -5,10 +5,13 @@
   <%= submit_tag :Submit %>
 <% end %>
 
-<% @businesses.each do |business| %>
-  <p><%= link_to business.name, business %></p>
-  <p><%= "Address: #{business.address}" %><p></br>
+<div class="row">
+	<% @businesses.each do |business| %>
+    <div class="large-4 columns">
+	    <p><%= link_to business.name, business %></p>
+	    <p><%= "Address: #{business.address}" %><p></br>
 
-  <%= link_to image_tag("http://maps.googleapis.com/maps/api/streetview?size=400x200&heading=#{business.heading}&pitch=0&pano=#{business.pano}&sensor=false&key=#{ENV['google_maps_api_key']}"), "https://maps.google.com/maps?layer=c&panoid=#{business.pano}&cbp=#{business.cbp}&source=embed&output=svembedmfe" %>
-  
-<% end %>
+		  <%= link_to image_tag("http://maps.googleapis.com/maps/api/streetview?size=400x200&heading=#{business.heading}&pitch=0&pano=#{business.pano}&sensor=false&key=#{ENV['google_maps_api_key']}"), "https://maps.google.com/maps?layer=c&panoid=#{business.pano}&cbp=#{business.cbp}&source=embed&output=svembedmfe" %>
+	  </div>
+  <% end %>
+</div>
