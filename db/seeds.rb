@@ -9,6 +9,9 @@
 Category.create(name: "Hotel")
 Category.create(name: "Office")
 Category.create(name: "University")
+Category.create(name: "Golf Course")
+Category.create(name: "Attractions")
+Category.create(name: "Park")
 
 Business.create(name: "Sangri-La Hotel", 
 	              address: "188 University Ave", 
@@ -39,3 +42,40 @@ Business.create(name: "University of Toronto Scarborough",
 	              pano: "GWKQJ94LFA5mEjB_xrp7MQ",
 	              cbp: ",190.85,,0,4.75",
 	              category_id: 3)
+
+Business.create(name: "Trump International Hotel & Tower Toronto",
+	              address: "325 Bay St",
+	              heading: 245,
+	              pano: "lr-gpNgxscTiRweCykPb5A",
+	              cbp: ",236.0,,0,-0.0",
+	              category_id: 1)
+
+Business.create(name: "Deerhurst Highlands Golf Course",
+	              address: "1235 Deerhurst Dr",
+	              heading: 200,
+	              pano: "EhNek1P-56N9g13_kol5OQ",
+	              cbp: ",208.89,,0,0.91000366",
+	              category_id: 4)
+
+Business.create(name: "The White House",
+	              address: "1600 Pennsylvania Ave NW, Washington, DC, United States",
+	              heading: 180,
+	              pano: "SMTdfWYGoav_usWjGTiMgQ",
+	              cbp: ",180.0,,0,-0.0",
+	              category_id: 5)
+
+Business.create(name: "The Links at Crowbush Cove Golf Course",
+	              address: "710 Canavoy Road West Saint Peters, PE",
+	              heading: 180,
+	              pano: "vuYqBpa45N10WMtF2kerCw",
+	              cbp: ",127.84,,0,14.610001",
+	              category_id: 4)
+
+Business.create(name: "High Park",
+	              address: "1873 Bloor St W, Toronto, ON",
+	              heading: 0,
+	              pano: "_HiEA17QmFiDCtNOlzQ5kQ",
+	              cbp: ",14.2,,0,11.029999",
+	              category_id: 6)
+
+
