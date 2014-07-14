@@ -24,13 +24,19 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-          <li class="active"><a href="#">Right Button Active</a></li>
-          <li class="has-dropdown">
-            <a href="#">Right Button Dropdown</a>
-            <ul class="dropdown">
-              <li><a href="#">First link in dropdown</a></li>
-            </ul>
-          </li>
+          <% if user_signed_in? %>
+            <li class="active"><%= link_to "edit profile", edit_user_registration_path %></li>
+            <li class="has-dropdown">
+              <a href="#">Logged in as <strong><%= current_user.email %></strong></a>
+              <ul class="dropdown">
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li class="active"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+            <li class="active"><%= link_to "Sign up", new_user_registration_path %></li>
+            <li class="active"><%= link_to "Login", new_user_session_path %></li>
+          <% end %>
         </ul>
 
         <!-- Left Nav Section -->
@@ -39,17 +45,6 @@
         </ul>
       </section>
     </nav>
-
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>
-      <%= link_to "edit profile", edit_user_registration_path %> | 
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-
-    <% end %>
 
     <% if flash[:notice] %>
       <div class="alert-box success radius"><%= flash[:notice] %></div>
