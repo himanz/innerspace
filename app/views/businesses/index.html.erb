@@ -6,8 +6,6 @@
   <%= submit_tag :Submit %>
 <% end %>
 
-
-
 <!-- <div class="row"> -->
 	<% @businesses.each do |business| %>
     <div class="large-4 columns">
@@ -15,6 +13,19 @@
       
 	    <p><%= link_to business.name, business %></p>
 	    <p><%= "Address: #{business.address}" %><p></br>
+      <a href="#" data-reveal-id="streetviewModal" class="radius button">Example Modal w/Video&hellip;</a>
 	  </div>
   <% end %>
+
+
+<!-- https://maps.google.ca/maps?hl=en_uk&ll=45.342201,-79.142333&spn=0.18,0.3&sll=45.342201,-79.142333&layer=c&cid=9868969958630749867&panoid=EhNek1P-56N9g13_kol5OQ&cbp=,208.89,,0,0.91000366&gl=CA&t=m&z=17&source=embed&output=svembed -->
+<div id="streetviewModal" class="reveal-modal large" data-reveal>
+  <h2>This modal has video</h2>
+  <div class="flex-video">
+    <iframe width="420" height="315" src="
+    https://maps.google.ca/maps?hl=en_uk&ll=45.342201,-79.142333&layer=c&panoid=EhNek1P-56N9g13_kol5OQ&cbp=,208.89,,0,0.91000366&t=m&z=17&source=embed&output=svembed" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>  
 <!-- </div> -->
