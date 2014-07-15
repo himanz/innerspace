@@ -25,7 +25,10 @@ describe Business do
   it "is invalid without a latitude" do
     expect(Business.new(latitude: nil)).to have(1).errors_on(:latitude)
   end
-  it "is invalid without a longitude"
+
+  it "is invalid without a longitude" do
+    expect(Business.new(longitude: nil)).to have(1).errors_on(:longitude)
+  end
 
   it "returns a valid streetview static image link" do
     business = create(:business)
