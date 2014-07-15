@@ -1,6 +1,103 @@
 require 'spec_helper'
 
 describe CategoriesController do
+  shared_examples("public access to categories") do
+    describe 'GET #index' do
+      it "populates an array of categories in alphabetical order" do
+        hotel = create(:category, name: 'Hotel')
+        bar = create(:category, name: 'Bar')
+        get :index
+        expect(assigns(:categories)).to match_array([bar, hotel])
+      end
+
+      it "renders the :index view" do
+        get :index
+        expect(response).to redirect_to businesses_url
+      end
+    end
+
+    describe 'GET #show' do
+      it "assigns the requested category to @category" do
+        category = create(:category)
+        get :show, id: category
+        expect(assigns(:category)).to eq category
+      end
+
+      it "renders the :show template" do
+        category = create(:category)
+        get :show, id: category
+        expect(response).to redirect_to businesses_url
+      end
+    end
+
+    describe 'GET #new' do
+      it "redirects to businesses index due to not admin" do
+        get :new
+        expect(response).to redirect_to businesses_url
+      end
+    end
+
+    describe 'GET #edit' do
+      it "requires admin status for user" do
+        category = create(:category)
+        get :edit, id: category
+        expect(response).to redirect_to businesses_url
+      end
+    end
+
+    describe "POST #create" do
+      context "with valid attributes" do
+        it "saves the new category in the database" do
+          expect{
+            post :create, category: attributes_for(:category)
+          }.to change(Category, :count).by(0)
+        end
+
+        it "redirects to businesses index due to not admin" do
+          post :create, category: attributes_for(:category)
+          expect(response).to redirect_to businesses_url
+        end
+      end
+    end
+
+    describe 'PATCH #update' do
+      before :each do
+        @category = create(:category, name: "Park")
+      end
+ 
+      it "located the requested @category" do
+        patch :update, id: @category, category: attributes_for(:category)
+        expect(assigns(:category)).to eq(@category)
+      end
+
+      it "does not change @category's attributes" do
+        patch :update, id: @category, category: attributes_for(:category, name: "University")
+        @category.reload
+        expect(@category.name).to eq("Park")
+      end
+
+      it "redirects to businesses index due to not admin" do
+        patch :update, id: @category, category: attributes_for(:category)
+        expect(response).to redirect_to businesses_url
+      end
+    end
+
+    describe 'DELETE #destroy' do
+      before :each do
+        @category = create(:category)
+      end
+
+      it "deletes the category" do
+        expect{delete :destroy, id: @category}.to_not change(Category, :count)
+      end
+
+      it "redirects to businesses index due to not admin" do
+        delete :destroy, id: @category
+        expect(response).to redirect_to businesses_url
+      end
+    end
+  end
+
   shared_examples("full access to categories") do
     describe 'GET #index' do
       it "populates an array of categories in alphabetical order" do
