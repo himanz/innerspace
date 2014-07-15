@@ -35,12 +35,14 @@ Business.create(name: "Search Engine People Inc.",
                 longitude: -79.088571
                 )
 
-# Business.create(name: "York University",
-# 	              address: "4700 Keele St",
-# 	              heading: 200,
-# 	              pano: "2QJ-106Lsy2mP9jgSNUpGQ",
-# 	              cbp: "249.99,,0,1.8199997",
-# 	              category_id: 3)
+Business.create(name: "York University",
+	              address: "4700 Keele St, Toronto, ON",
+	              heading: 200,
+	              pano: "2QJ-106Lsy2mP9jgSNUpGQ",
+	              cbp: "249.99,,0,1.8199997",
+	              category_id: 3,
+	              latitude: 43.773344,
+	              longitude: -79.502026)
 
 # Business.create(name: "University of Toronto Scarborough",
 # 	              address: "1265 Military Trail",
