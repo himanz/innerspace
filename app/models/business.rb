@@ -21,7 +21,7 @@ class Business < ActiveRecord::Base
 		"http://maps.googleapis.com/maps/api/streetview?size=500x300&heading=#{heading}&pitch=0&pano=#{pano}&sensor=false&key=#{ENV['google_maps_api_key']}"
 	end
 
-	# def streetview_tour
-	# 	"https://maps.google.ca/maps?hl=en_uk&ll=#{business.latitude},#{business.longitude}&layer=c&panoid=#{business.pano}&cbp=#{business.cbp}&t=m&z=17&source=embed&output=svembed"
-	# end
+	def streetview_tour
+		"https://maps.google.ca/maps?hl=en_uk&ll=#{latitude},#{longitude}&layer=c&panoid=#{pano}&cbp=#{cbp}&t=m&z=17&source=embed&output=svembed"
+	end
 end
