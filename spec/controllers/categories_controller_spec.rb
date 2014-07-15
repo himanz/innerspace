@@ -237,4 +237,8 @@ describe CategoriesController do
 
     it_behaves_like "public access to categories"
   end
+
+  describe "guest access" do
+    it_behaves_like "public access to categories"
+  end
 end
