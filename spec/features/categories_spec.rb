@@ -1,5 +1,8 @@
 require 'spec_helper'
 
+include Warden::Test::Helpers
+Warden.test_mode!
+
 feature 'Category management' do
 	before :each do
 		@default = create(:default_category)
