@@ -3,14 +3,7 @@ require 'spec_helper'
 describe CategoriesController do
   shared_examples("public access to categories") do
     describe 'GET #index' do
-      it "populates an array of categories in alphabetical order" do
-        hotel = create(:category, name: 'Hotel')
-        bar = create(:category, name: 'Bar')
-        get :index
-        expect(assigns(:categories)).to match_array([bar, hotel])
-      end
-
-      it "renders the :index view" do
+      it "redirects to businesses index due to not admin" do
         get :index
         expect(response).to redirect_to businesses_url
       end
@@ -100,13 +93,6 @@ describe CategoriesController do
 
   shared_examples("full access to categories") do
     describe 'GET #index' do
-      it "populates an array of categories in alphabetical order" do
-      	hotel = create(:category, name: 'Hotel')
-      	bar = create(:category, name: 'Bar')
-      	get :index
-      	expect(assigns(:categories)).to match_array([bar, hotel])
-      end
-
       it "renders the :index view" do
       	get :index
       	expect(response).to render_template :index
@@ -241,5 +227,14 @@ describe CategoriesController do
     end
 
     it_behaves_like "full access to categories"
+  end
+
+  describe "user access" do
+    before :each do
+      user = create(:user)
+      sign_in user
+    end
+
+    it_behaves_like "public access to categories"
   end
 end
