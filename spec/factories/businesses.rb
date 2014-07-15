@@ -9,6 +9,8 @@ FactoryGirl.define do
     heading 200
     cbp ",191.0,,0,-0.0"
     category_id 1
+    latitude 45.342201
+    longitude -79.142333
 
     factory :invalid_business do
   	  name nil
