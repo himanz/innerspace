@@ -43,4 +43,24 @@ feature 'Category management' do
 			expect(page).to have_content "Index"
 		end
   end
+
+  describe "guest access" do
+		before :each do
+			user = create(:user)
+			login_as(user)
+			@default = create(:default_category)
+		end
+
+		scenario "add a new category" do
+			visit new_category_path
+			expect(current_path).to eq businesses_path
+			expect(page).to have_content "You need admin status to access the previous page"
+		end
+
+		scenario "edit a category" do
+			visit edit_category_path(@default)
+			expect(current_path).to eq businesses_path
+			expect(page).to have_content "You need admin status to access the previous page"
+		end
+  end
 end
