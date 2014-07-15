@@ -35,5 +35,8 @@ describe Business do
     expect(business.streetview_image).to eq "http://maps.googleapis.com/maps/api/streetview?size=500x300&heading=200.0&pitch=0&pano=3L5NCiIf__oAAAQIt-clrA&sensor=false&key=#{ENV['google_maps_api_key']}"
   end
 
-  it "returns a valid streetview tour link"
+  it "returns a valid streetview tour link" do
+    business = create(:business)
+    expect(business.streetview_tour).to eq "https://maps.google.ca/maps?hl=en_uk&ll=45.342201,-79.142333&layer=c&panoid=3L5NCiIf__oAAAQIt-clrA&cbp=,191.0,,0,-0.0&t=m&z=17&source=embed&output=svembed"
+  end
 end
