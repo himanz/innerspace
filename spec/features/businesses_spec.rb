@@ -20,6 +20,8 @@ feature 'Business management' do
 		  	fill_in 'Heading', with: @default.heading
 		  	fill_in 'Pano', with: @default.pano
 		  	fill_in 'Cbp', with: @default.cbp
+		  	fill_in 'Latitude', with: @default.latitude
+		  	fill_in 'Longitude', with: @default.longitude
 		  	select("Hotel", :from => 'business_category_id')
 		  	click_button 'Submit'
 		  }.to change(Business, :count).by(1)
