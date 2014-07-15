@@ -16,4 +16,8 @@ class Business < ActiveRecord::Base
 	def self.by_category(category)
 		where(category_id: category)
 	end
+
+	def streetview_image
+		"http://maps.googleapis.com/maps/api/streetview?size=500x300&heading=#{heading}&pitch=0&pano=#{pano}&sensor=false&key=#{ENV['google_maps_api_key']}"
+	end
 end
