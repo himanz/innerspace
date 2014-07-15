@@ -136,4 +136,13 @@ describe CategoriesController do
     	end
     end
   end
+
+  describe "admin access" do
+    before :each do
+      user = create(:admin_user)
+      sign_in user
+    end
+
+    it_behaves_like "full access to categories"
+  end
 end
