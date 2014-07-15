@@ -66,10 +66,4 @@ class BusinessesController < ApplicationController
 	def business_params
 		params.require(:business).permit(:name, :address, :heading, :pano, :cbp, :category_id, :latitude, :longitude)
 	end
-
-	def check_admin
-		unless current_user && current_user.admin
-			redirect_to businesses_path, notice: "You need admin status to access the previous page."
-		end
-	end
 end

@@ -316,5 +316,6 @@ describe BusinessesController do
   end
 
 	describe "guest access" do
-		it_behaves_like "public access to businesses"end
+		it_behaves_like "public access to businesses"
   end
+end
