@@ -12,7 +12,7 @@ class Business < ActiveRecord::Base
 	end
 
 	def self.by_recent
-		where("created_at <= ?", 1.week.ago.utc).order("created_at DESC")
+		where("created_at >= ?", 1.week.ago.utc).order("created_at DESC")
 	end
 
 	def streetview_image
