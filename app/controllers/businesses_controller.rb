@@ -61,6 +61,10 @@ class BusinessesController < ApplicationController
 		@businesses = Business.by_recent
 	end
 
+	def random
+		redirect_to business_path(Business.random_pick)
+	end
+
 	private
 
 	def set_business
