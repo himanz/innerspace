@@ -81,6 +81,7 @@ describe BusinessesController do
 	  		  hotel1 = create(:hotel1_business)
 					hotel2 = create(:hotel2_business)
 					park = create(:park_business)
+					business = create(:business, created_at: 2.weeks.ago.utc)
 					get :recent
 					expect(assigns(:businesses)).to match_array([park, hotel2, hotel1])
 	  	end
