@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Business do
-  it "is valid with a name, address, heading, pano, category_id, latitude and longitude" do
+  it "is valid with a name, address, heading, pano, category_id, latitude, longitude, state and coountry" do
   	business = create(:business)
   	expect(business).to be_valid
   end
@@ -29,6 +29,14 @@ describe Business do
   it "is invalid without a longitude" do
     expect(Business.new(longitude: nil)).to have(1).errors_on(:longitude)
   end
+
+  it "is invalid without a state" do
+    expect(Business.new(state: nil)).to have(1).errors_on(:state)
+  end
+
+  it "is invalid without a state" do
+    expect(Business.new(country: nil)).to have(1).errors_on(:country)
+  end  
 
   it "returns a valid streetview static image link" do
     business = create(:business)
