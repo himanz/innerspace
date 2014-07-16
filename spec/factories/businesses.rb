@@ -11,8 +11,10 @@ FactoryGirl.define do
     category_id 1
     latitude 45.342201
     longitude -79.142333
+    city "Toronto"
     state "Ontario"
     country "Canada"
+
 
     factory :invalid_business do
   	  name nil
