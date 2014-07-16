@@ -29,7 +29,7 @@ Business.create(name: "Sangri-La Hotel",
 	              )
 
 Business.create(name: "Search Engine People Inc.",
-                address: "1305 Pickering Pkwy #500"
+                address: "1305 Pickering Pkwy #500",
                 heading: 300,
                 pano: "JSuPKuDL7l2DyHx0jF4nmg",
                 cbp: ",316.42,,0,-0.0",
