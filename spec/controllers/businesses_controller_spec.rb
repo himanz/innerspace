@@ -76,6 +76,16 @@ describe BusinessesController do
 	  	end
 	  end
 
+	  describe "GET #recent" do
+	  	it "populates an array with recent additions up to a week old" do
+	  		  hotel1 = create(:hotel1_business)
+					hotel2 = create(:hotel2_business)
+					park = create(:park_business)
+					get :recent
+					expect(assigns(:businesses)).to match_array([park, hotel2, hotel1])
+	  	end
+	  end
+
 		describe "POST #create" do
 			it "does not save the new business in the database" do
 				expect{
