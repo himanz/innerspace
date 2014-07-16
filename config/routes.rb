@@ -1,6 +1,8 @@
 Innerspace::Application.routes.draw do
   root to: "businesses#index"
-  resources :businesses
+  resources :businesses do
+    get :recent, on: :collection 
+  end
   resources :categories
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
