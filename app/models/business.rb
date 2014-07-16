@@ -19,6 +19,10 @@ class Business < ActiveRecord::Base
 		rand(1..(Business.count + 1))
 	end
 
+	def formatted_address
+		"#{address}, #{city}, #{state}"
+	end
+
 	def streetview_image
 		"http://maps.googleapis.com/maps/api/streetview?size=500x300&heading=#{heading}&pitch=0&pano=#{pano}&sensor=false&key=#{ENV['google_maps_api_key']}"
 	end
