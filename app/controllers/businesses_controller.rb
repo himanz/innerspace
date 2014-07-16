@@ -1,7 +1,7 @@
 class BusinessesController < ApplicationController
 	 
   before_action :set_business, only: [:show, :edit, :update, :destroy]
-  before_action :check_admin, except: [:index, :show]
+  before_action :check_admin, except: [:index, :show, :recent]
 
 	def index
 		@category = Category.all
