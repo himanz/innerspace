@@ -91,7 +91,7 @@ describe BusinessesController do
 	  	it "redirects to business page" do
 	  		hotel = create(:hotel1_business)
         get :random
-        expect(response).to redirect_to business_url(rand(1..(Business.count + 1)))
+        expect(response).to redirect_to business_url(1)
 	  	end
 	  end
 
@@ -248,7 +248,7 @@ describe BusinessesController do
 	  	it "redirects to business page" do
 	  		hotel = create(:hotel1_business)
         get :random
-        expect(response).to redirect_to business_url(rand(1..(Business.count + 1)))
+        expect(response).to redirect_to business_url(1)
 	  	end
 	  end
 
