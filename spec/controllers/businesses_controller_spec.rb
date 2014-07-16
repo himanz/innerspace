@@ -87,13 +87,13 @@ describe BusinessesController do
 	  	end
 	  end
 
-	  describe "GET #random" do
-	  	it "redirects to business page" do
-	  		hotel = create(:hotel1_business)
-        get :random
-        expect(response).to redirect_to business_url(1)
-	  	end
-	  end
+	  # describe "GET #random" do
+	  # 	it "redirects to business page" do
+	  # 		hotel = create(:hotel1_business)
+   #      get :random
+   #      expect(response).to redirect_to business_url(1)
+	  # 	end
+	  # end
 
 		describe "POST #create" do
 			it "does not save the new business in the database" do
@@ -244,13 +244,13 @@ describe BusinessesController do
 	  	end
 	  end
 
-	  describe "GET #random" do
-	  	it "redirects to business page" do
-	  		hotel = create(:hotel1_business)
-        get :random
-        expect(response).to redirect_to business_url(1)
-	  	end
-	  end
+	  # describe "GET #random" do
+	  # 	it "redirects to business page" do
+	  # 		hotel = create(:hotel1_business)
+   #      get :random
+   #      # expect(response).to redirect_to business_url(1)
+	  # 	end
+	  # end
 
 		describe "POST #create" do
 			context "with valid attributes" do
