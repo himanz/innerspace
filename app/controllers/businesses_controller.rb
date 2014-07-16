@@ -57,6 +57,10 @@ class BusinessesController < ApplicationController
 		end
 	end
 
+	def recent
+		@businesses = Business.by_recent
+	end
+
 	private
 
 	def set_business

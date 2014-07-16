@@ -11,6 +11,10 @@ class Business < ActiveRecord::Base
 		where(category_id: category)
 	end
 
+	def self.by_recent
+		where("created_at >= ?", 1.week.ago.utc).order("created_at DESC")
+	end
+
 	def streetview_image
 		"http://maps.googleapis.com/maps/api/streetview?size=500x300&heading=#{heading}&pitch=0&pano=#{pano}&sensor=false&key=#{ENV['google_maps_api_key']}"
 	end
