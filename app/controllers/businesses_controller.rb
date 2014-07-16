@@ -8,9 +8,9 @@ class BusinessesController < ApplicationController
 		if params[:letter]
 			@businesses = Business.by_letter(params[:letter])
 		elsif params[:category]
-			@businesses = Business.by_category(params[:category])
+			@businesses = Business.by_category(params[:category]).page(params[:page])
 		else
-			@businesses = Business.order("name")
+			@businesses = Business.order("name").page(params[:page])
 		end
 	end
 
