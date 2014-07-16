@@ -58,7 +58,7 @@ class BusinessesController < ApplicationController
 	end
 
 	def recent
-		@businesses = Business.by_recent
+		@businesses = Business.by_recent.page(params[:page])
 	end
 
 	def random
