@@ -87,6 +87,14 @@ describe BusinessesController do
 	  	end
 	  end
 
+	  describe "GET #random" do
+	  	it "redirects to business page" do
+	  		hotel = create(:hotel1_business)
+        get :random
+        expect(response).to redirect_to business_url(rand(Business.count))
+	  	end
+	  end
+
 		describe "POST #create" do
 			it "does not save the new business in the database" do
 				expect{
