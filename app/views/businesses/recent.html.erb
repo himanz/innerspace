@@ -1,3 +1,5 @@
+<h2>Recently Added Businesses</h2>
+
 <% @businesses.each do | business| %>
   <div class="large-4 columns">
   	<%= link_to image_tag(business.streetview_image), business, id: "#{business.name}", :class => "streetview-image" %>
