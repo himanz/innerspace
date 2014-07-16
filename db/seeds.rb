@@ -16,33 +16,42 @@ Category.create(name: "Attractions")
 Category.create(name: "Park")
 
 Business.create(name: "Sangri-La Hotel", 
-	              address: "188 University Ave, Toronto, ON", 
+	              address: "188 University Ave", 
 	              heading: 200, 
 	              pano: "3L5NCiIf__oAAAQIt-clrA",
 	              cbp: ",191.0,,0,-0.0",
 	              category_id: 1,
                 latitude: 43.64937,
-                longitude: -79.386129  
+                longitude: -79.386129,
+                city: "Toronto",
+                state: "Ontario",
+                country: "Canada"  
 	              )
 
 Business.create(name: "Search Engine People Inc.",
-                address: "1305 Pickering Pkwy #500, Pickering, ON",
+                address: "1305 Pickering Pkwy #500"
                 heading: 300,
                 pano: "JSuPKuDL7l2DyHx0jF4nmg",
                 cbp: ",316.42,,0,-0.0",
                 category_id: 2,
                 latitude: 43.833183,
-                longitude: -79.088571
+                longitude: -79.088571,
+                city: "Pickering",
+                state: "Ontario",
+                country: "Canada"
                 )
 
 Business.create(name: "York University",
-	              address: "4700 Keele St, Toronto, ON",
+	              address: "4700 Keele St",
 	              heading: 200,
 	              pano: "2QJ-106Lsy2mP9jgSNUpGQ",
 	              cbp: "249.99,,0,1.8199997",
 	              category_id: 3,
 	              latitude: 43.773344,
-	              longitude: -79.502026)
+	              longitude: -79.502026,
+	              city: "Toronto",
+                state: "Ontario",
+                country: "Canada")
 
 # Business.create(name: "University of Toronto Scarborough",
 # 	              address: "1265 Military Trail",
@@ -65,16 +74,22 @@ Business.create(name: "Deerhurst Highlands Golf Course",
 	              cbp: ",208.89,,0,0.91000366",
 	              category_id: 4,
 	              latitude: 45.342201,
-	              longitude: -79.142333)
+	              longitude: -79.142333,
+	              city: "Huntsville",
+                state: "Ontario",
+                country: "Canada")
 
 Business.create(name: "The White House",
-	              address: "1600 Pennsylvania Ave NW, Washington, DC, United States",
+	              address: "1600 Pennsylvania Ave NW",
 	              heading: 180,
 	              pano: "SMTdfWYGoav_usWjGTiMgQ",
 	              cbp: ",180.0,,0,-0.0",
 	              category_id: 5,
 	              latitude: 38.897632,
-	              longitude: -77.036507)
+	              longitude: -77.036507,
+	              city: "Washington",
+                state: "DC",
+                country: "United States")
 
 # Business.create(name: "The Links at Crowbush Cove Golf Course",
 # 	              address: "710 Canavoy Road West Saint Peters, PE",
@@ -84,12 +99,15 @@ Business.create(name: "The White House",
 # 	              category_id: 4)
 
 Business.create(name: "High Park",
-	              address: "1873 Bloor St W, Toronto, ON",
+	              address: "1873 Bloor St W",
 	              heading: 0,
 	              pano: "_HiEA17QmFiDCtNOlzQ5kQ",
 	              cbp: ",14.2,,0,11.029999",
 	              category_id: 6,
 	              latitude: 43.643243,
-	              longitude: -79.467211)
+	              longitude: -79.467211,
+	              city: "Toronto",
+                state: "Ontario",
+                country: "Canada")
 
 
