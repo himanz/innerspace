@@ -47,4 +47,9 @@ describe Business do
     business = create(:business)
     expect(business.streetview_tour).to eq "https://maps.google.ca/maps?hl=en_uk&ll=45.342201,-79.142333&layer=c&panoid=3L5NCiIf__oAAAQIt-clrA&cbp=,191.0,,0,-0.0&t=m&z=17&source=embed&output=svembed"
   end
+
+  it "returns a valid address" do
+    business = create(:default)
+    expect(business.formatted_address).to eq "1 Default Drive, Toronto, Ontario"
+  end
 end
