@@ -119,6 +119,12 @@ feature 'User Interaction' do
 		expect(page).to have_content "Default Cafe"
 	end
 
+	scenario "click recent tab in top bar" do
+		visit businesses_path
+		click_link 'Recent'
+		expect(page).to have_content "Recently Added Businesses"
+	end
+
   # Work on this to make the correct test pass.  After submit
   # button click, no results are displayed
 	scenario "select hotel option to sort index by hotel" do
