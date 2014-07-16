@@ -16,7 +16,7 @@ class Business < ActiveRecord::Base
 	end
 
 	def self.random_pick
-		rand(Business.count)
+		rand(1..(Business.count + 1))
 	end
 
 	def streetview_image
