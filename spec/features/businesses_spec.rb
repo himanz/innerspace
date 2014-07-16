@@ -24,6 +24,7 @@ feature 'Business management' do
 		  	fill_in 'Longitude', with: @default.longitude
 		  	fill_in 'State', with: @default.state
 		  	fill_in 'Country', with: @default.country
+		  	fill_in 'City', with: @default.city
 		  	select("Hotel", :from => 'business_category_id')
 		  	click_button 'Submit'
 		  }.to change(Business, :count).by(1)
