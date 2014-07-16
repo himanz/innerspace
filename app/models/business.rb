@@ -1,7 +1,7 @@
 class Business < ActiveRecord::Base
 	belongs_to :pin
 
-	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, presence: true
+	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, :city, presence: true
 
 	def self.by_letter(letter)
 		where("name LIKE ?", "#{letter}%").order(:name)
