@@ -6,6 +6,7 @@ Innerspace::Application.routes.draw do
   end
   resources :categories
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get "about_me", :to => 'static_pages#about_me'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
