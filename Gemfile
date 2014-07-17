@@ -36,6 +36,8 @@ gem 'foundation-rails'
 
 gem 'kaminari'
 
+gem 'contact_us', '~> 0.5.1'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
