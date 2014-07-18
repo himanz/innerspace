@@ -16,7 +16,7 @@ class Business < ActiveRecord::Base
 	end
 
 	def self.random_pick
-		rand(1..(Business.count + 1))
+		rand(1..(Business.count))
 	end
 
 	def formatted_address
