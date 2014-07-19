@@ -1,6 +1,9 @@
 class Business < ActiveRecord::Base
 	attr_reader :image_remote_url
-  has_attached_file :image
+  has_attached_file :image, styles: {
+  	thumb: '100x100>',
+  	medium: '500x300>'
+  }
 
   before_create :image_remote_url
 
