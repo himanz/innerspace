@@ -1,5 +1,3 @@
-"require open-uri"
-
 class Business < ActiveRecord::Base
 	attr_reader :image_remote_url
   has_attached_file :image
