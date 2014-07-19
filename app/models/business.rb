@@ -12,6 +12,7 @@ class Business < ActiveRecord::Base
   def image_remote_url
   	self.image = URI.parse(streetview_image)
   	@image_remote_url = (streetview_image)
+  	self.image_file_name = self.name
   end
 
 	def self.by_letter(letter)
