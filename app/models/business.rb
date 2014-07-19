@@ -1,14 +1,19 @@
-class Business < ActiveRecord::Base
-	belongs_to :pin
+"require open-uri"
 
+class Business < ActiveRecord::Base
 	attr_reader :image_remote_url
   has_attached_file :image
 
-	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, :city, presence: true
+  before_create :image_remote_url
 
-  def image_remote_url=(url_value)
-  	self.image = URI.parse(url_value)
-  	@image_remote_url = url_value
+	belongs_to :pin
+
+	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, :city, presence: true
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
+
+  def image_remote_url
+  	self.image = URI.parse(streetview_image)
+  	@image_remote_url = (streetview_image)
   end
 
 	def self.by_letter(letter)
