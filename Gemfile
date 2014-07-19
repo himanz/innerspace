@@ -42,8 +42,6 @@ gem "paperclip", "~> 4.1"
 
 gem "aws-sdk"
 
-gem "capistrano-bundler"
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
