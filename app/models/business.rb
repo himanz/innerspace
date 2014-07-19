@@ -1,7 +1,15 @@
 class Business < ActiveRecord::Base
 	belongs_to :pin
 
+	attr_reader :image_remote_url
+  has_attached_file :image
+
 	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, :city, presence: true
+
+  def image_remote_url=(url_value)
+  	self.image = URI.parse(url_value)
+  	@image_remote_url = url_value
+  end
 
 	def self.by_letter(letter)
 		where("name LIKE ?", "#{letter}%").order(:name)
