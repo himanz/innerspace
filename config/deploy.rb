@@ -1,44 +1,30 @@
-# Define the name of the application
-set :application, 'scoutingit'
+require 'bundler/capistrano' # for bundler support
 
-# Define where can Capistrano access the source repository
-# set :repo_url, 'https://github.com/[user name]/[application name].git'
-set :scm, :git
-set :repo_url, 'git@github.com:himanz/innerspace.git'
+set :application, "scoutingit"
+set :repository,  "git@github.com:himanz/innerspace.git"
 
-# Define where to put your application code
+set :user, 'jonos'
 set :deploy_to, "/home/#{ user }/#{ application }"
+set :use_sudo, false
 
-set :pty, true
+set :scm, :git
 
-set :format, :pretty
+default_run_options[:pty] = true
 
-# Set the post-deployment instructions here.
-# Once the deployment is complete, Capistrano
-# will begin performing them as described.
-# To learn more about creating tasks,
-# check out:
-# http://capistranorb.com/
+role :web, "104.131.236.37"                          # Your HTTP server, Apache/etc
+role :app, "104.131.236.37"                          # This may be the same as your `Web` server
 
-# namespace: deploy do
+# if you want to clean up old releases on each deploy uncomment this:
+# after "deploy:restart", "deploy:cleanup"
 
-#   desc 'Restart application'
-#   task :restart do
-#     on roles(:app), in: :sequence, wait: 5 do
-#       # Your restart mechanism here, for example:
-#       execute :touch, release_path.join('tmp/restart.txt')
-#     end
-#   end
+# if you're still using the script/reaper helper you will need
+# these http://github.com/rails/irs_process_scripts
 
-#   after :publishing, :restart
-
-#   after :restart, :clear_cache do
-#     on roles(:web), in: :groups, limit: 3, wait: 10 do
-#       # Here we can do anything such as:
-#       # within release_path do
-#       #   execute :rake, 'cache:clear'
-#       # end
-#     end
-#   end
-
-# end
+# If you are using Passenger mod_rails uncomment this:
+namespace :deploy do
+ task :start do ; end
+ task :stop do ; end
+ task :restart, :roles => :app, :except => { :no_release => true } do
+   run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+ end
+end
