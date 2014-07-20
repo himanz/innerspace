@@ -1,3 +1,5 @@
+load 'deploy' if respond_to?(:namespace)
+
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 

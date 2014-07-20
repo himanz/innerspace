@@ -1,11 +1,13 @@
-require 'bundler/capistrano' # for bundler support
+require 'bundler/capistrano'
 
 set :application, "scoutingit"
 set :repository,  "git@github.com:himanz/innerspace.git"
 
 set :user, 'jonos'
-set :deploy_to, "/home/#{ user }/#{ application }"
+set :deploy_to, "/home/jonos/scoutingit"
 set :use_sudo, false
+
+set :rails_env, "production"
 
 set :scm, :git
 
@@ -22,9 +24,9 @@ role :app, "104.131.236.37"                          # This may be the same as y
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
- task :start do ; end
- task :stop do ; end
- task :restart, :roles => :app, :except => { :no_release => true } do
-   run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
- end
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
 end
