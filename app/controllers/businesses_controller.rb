@@ -5,9 +5,9 @@ class BusinessesController < ApplicationController
 
 	def index
 		@category = Category.all
-		if params[:letter]
-			@businesses = Business.by_letter(params[:letter])
-		elsif params[:category]
+		# if params[:letter]
+		# 	@businesses = Business.by_letter(params[:letter])
+		if params[:category]
 			@businesses = Business.by_category(params[:category]).page(params[:page])
 		else
 			@businesses = Business.order("name").page(params[:page])

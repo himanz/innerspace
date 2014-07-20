@@ -7,8 +7,7 @@
   <div id="search"> 
   <%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
     <p>Filter by</p>
-    <%= select_tag :category, options_from_collection_for_select(@category, "id", "name"), {:prompt => "Category"} %>
-    <%= select_tag :country, options_from_collection_for_select(Business.unique_by_country, :country, :country), {:prompt => "Country"} %>
+    <%= select_tag :category, options_from_collection_for_select(@category, "id", "name") %>
     <%= submit_tag :Submit, :class => "button tiny" %>
   <% end %>
   </div>

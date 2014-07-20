@@ -1,6 +1,6 @@
 class Business < ActiveRecord::Base
 	attr_reader :image_remote_url
-	scope :unique_by_country, lambda { select(:country).uniq}
+	# scope :unique_by_country, lambda { select(:country).uniq}
   has_attached_file :image, styles: {
   	thumb: '100x100>',
   	medium: '500x300>'
@@ -26,6 +26,10 @@ class Business < ActiveRecord::Base
 	def self.by_category(category)
 		where(category_id: category)
 	end
+
+	# def self.by_country(country)
+	# 	where("country LIKE ?", "#{country}")
+	# end
 
 	def self.by_recent
 		where("created_at >= ?", 1.week.ago.utc).order("created_at DESC")
