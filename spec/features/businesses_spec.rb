@@ -54,7 +54,7 @@ feature 'Business management' do
 			}.to change(Business, :count).by(-1)
 			expect(current_path).to eq  businesses_path
 			expect(page).to have_content "Business was successfully deleted"
-			expect(page).to have_content "Index"
+			expect(page).to have_content "Welcome"
 		end
   end
 
