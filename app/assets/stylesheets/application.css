@@ -13,3 +13,7 @@
 
  *= require_tree .
  */
+
+#contact_us_contact_message {
+	height: 200px;
+}
