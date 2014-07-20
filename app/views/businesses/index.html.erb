@@ -2,7 +2,7 @@
 
 <%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
   <%= select_tag :category, options_from_collection_for_select(@category, "id", "name") %>
-  <%= submit_tag :Submit %>
+  <%= submit_tag :Submit, :class => "button tiny" %>
 <% end %>
 
 <div>
