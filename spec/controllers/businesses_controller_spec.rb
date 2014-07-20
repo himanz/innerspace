@@ -3,19 +3,19 @@ require 'spec_helper'
 describe BusinessesController do
 	shared_examples("public access to businesses") do
 		describe 'GET #index' do
-			context 'with params[:letter]' do
-				it "populates an array of businesses starting with the letter" do
-					pho = create(:business, name: 'Pho')
-					bob = create(:business, name: 'Bob')
-					get :index, letter: 'P'
-					expect(assigns(:businesses)).to match_array([pho])
-				end
+			# context 'with params[:letter]' do
+				# it "populates an array of businesses starting with the letter" do
+				# 	pho = create(:business, name: 'Pho')
+				# 	bob = create(:business, name: 'Bob')
+				# 	get :index, letter: 'P'
+				# 	expect(assigns(:businesses)).to match_array([pho])
+				# end
 
-				it "renders the :index view" do
-					get :index, letter: 'P'
-					expect(response).to render_template :index
-				end
-			end
+				# it "renders the :index view" do
+				# 	get :index, letter: 'P'
+				# 	expect(response).to render_template :index
+				# end
+			# end
 
 			context 'with params[:category]' do
 				it "populates an array of businesses with the same category" do
@@ -149,19 +149,19 @@ describe BusinessesController do
 
 	shared_examples("full access to businesses") do
 		describe 'GET #index' do
-			context 'with params[:letter]' do
-				it "populates an array of businesses starting with the letter" do
-					pho = create(:business, name: 'Pho')
-					bob = create(:business, name: 'Bob')
-					get :index, letter: 'P'
-					expect(assigns(:businesses)).to match_array([pho])
-				end
+			# context 'with params[:letter]' do
+			# 	it "populates an array of businesses starting with the letter" do
+			# 		pho = create(:business, name: 'Pho')
+			# 		bob = create(:business, name: 'Bob')
+			# 		get :index, letter: 'P'
+			# 		expect(assigns(:businesses)).to match_array([pho])
+			# 	end
 
-				it "renders the :index view" do
-					get :index, letter: 'P'
-					expect(response).to render_template :index
-				end
-			end
+			# 	it "renders the :index view" do
+			# 		get :index, letter: 'P'
+			# 		expect(response).to render_template :index
+			# 	end
+			# end
 
 			context 'with params[:category]' do
 				it "populates an array of businesses with the same category" do
