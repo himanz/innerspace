@@ -1,4 +1,12 @@
-<h2><%= t('.contact_us') %></h2>
+<h2><%= t('.contact_me') %></h2>
+<p>I would love to hear your feedback or thoughts about the site.</p>
+<p>If you would like the website to include a location that has Street View done to it, please fill out the contact form with as many of the following fields:</br> 
+   Name of location:</br>
+   Address of location:</br>
+   City of location:</br>
+   Country of location:</br>
+   Link to Street View on Google Maps:</br>
+</p>
 <%= form_for @contact, :url => contacts_path, :html => {:class => 'formtastic'} do |f| %>
   <% if ContactUs.require_name %>
     <div class='string required' id='contact_us_contact_name_input'>
@@ -33,6 +41,6 @@
     <% end %>
   </div>
   <div class='commit'>
-    <%= f.submit :submit, :class => 'button small submit create', :title => t('.submit') %>
+    <%= f.submit :Submit, :class => 'button small submit create', :title => t('.submit') %>
   </div>
 <% end %>
