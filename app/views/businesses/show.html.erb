@@ -1,5 +1,7 @@
 <iframe width="100%" height="60%" src="<%= @business.streetview_tour %>" frameborder="0" allowfullscreen></iframe>
 
-<h1><%= @business.name %></h1>
-<p><%= @business.formatted_address %><p>
-<p><%= @business.country %></p>
+<div id="show-info" class="business-info">
+	<h1><%= @business.name %></h1>
+	<p><%= @business.formatted_address %><p>
+	<p><%= @business.country %></p>
+</div>
