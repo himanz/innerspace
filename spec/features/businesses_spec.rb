@@ -125,7 +125,7 @@ feature 'User Interaction' do
 	scenario "click recent tab in top bar" do
 		visit businesses_path
 		click_link 'Recent'
-		expect(page).to have_content "Recently Added Businesses"
+		expect(page).to have_content "Recently Added"
 	end
 
   # Work on this to make the correct test pass.  After submit
