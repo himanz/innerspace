@@ -8,18 +8,14 @@
 <% end %>
 </div>
 
+<% @businesses.each do |business| %>
+  <div class="large-4 columns box">
+  	<%= link_to image_tag(business.image.url(:medium)), business, id: "#{business.name}", :class => "streetview-image" %>
+    <p><%= business.name %></p>
+    <p><%= business.formatted_address %><p>
+    <p><%= business.country %></p></br>
 
+  </div>
+<% end %>
 
-<div>
-<%= page_entries_info @businesses %>
-</div>  
-	<% @businesses.each do |business| %>
-    <div class="large-4 columns box">
-    	<%= link_to image_tag(business.image.url(:medium)), business, id: "#{business.name}", :class => "streetview-image" %>
-	    <p><%= business.name %></p>
-	    <p><%= business.formatted_address %><p>
-      <p><%= business.country %></p></br>
-
-	  </div>
-  <% end %>
 <%= paginate @businesses %>  
