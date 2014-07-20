@@ -13,9 +13,8 @@
 <div>
 <%= page_entries_info @businesses %>
 </div>  
-<!-- <div class="row"> -->
 	<% @businesses.each do |business| %>
-    <div class="large-4 columns business">
+    <div class="large-4 columns box">
     	<%= link_to image_tag(business.image.url(:medium)), business, id: "#{business.name}", :class => "streetview-image" %>
 	    <p><%= business.name %></p>
 	    <p><%= business.formatted_address %><p>
@@ -23,8 +22,4 @@
 
 	  </div>
   <% end %>
-
-  
-  
 <%= paginate @businesses %>  
-<!-- </div> -->
