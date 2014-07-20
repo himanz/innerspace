@@ -1,11 +1,14 @@
 <p>Index</p>
 
-<div id="search">
+
+<div id="search"> 
 <%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
   <%= select_tag :category, options_from_collection_for_select(@category, "id", "name") %>
   <%= submit_tag :Submit, :class => "button tiny" %>
 <% end %>
 </div>
+
+
 
 <div>
 <%= page_entries_info @businesses %>
