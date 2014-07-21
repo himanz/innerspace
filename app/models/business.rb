@@ -1,20 +1,16 @@
 class Business < ActiveRecord::Base
 	attr_reader :image_remote_url
 	# scope :unique_by_country, lambda { select(:country).uniq}
-
-  Paperclip.options[:command_path] = 'C:\RailsInstaller\ImageMagick'
-
   has_attached_file :image, styles: {
   	thumb: '100x100>',
   	medium: '500x300>'
   },
-  :default_url => ':s3_domain_url',
   :storage => :s3,
   :s3_credentials => {
-  	:bucket => 'innerspace',
-  	:access_key_id => ENV['AWS_SECRET_ACCESS_KEY_ID'],
-  	:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  }
+      :bucket => 'innerspace',
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
 
   before_create :image_remote_url
 
