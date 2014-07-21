@@ -19,7 +19,9 @@ test:
   timeout: 5000
 
 production:
+  user: jonos
+  password: princ3ss
   adapter: postgresql
-  database: scoutingit
+  database: innerspace
   pool: 5
   timeout: 5000
