@@ -1,33 +1,20 @@
-set :default_stage, 'development'
-set :stages, %w(production staging development)
-require 'capistrano/ext/multistage'
-require 'bundler/capistrano'
+set :application, 'innerspace'
+set :repo_url, 'git@github.com:himanz/innerspace.git'
 
-set :application, "scoutingit"
-set :repository,  "git@github.com:himanz/innerspace.git"
-set :deploy_to, '/var/www/scoutingit'
-set :scm, :git
-set :branch, 'master'
-set :user, 'jonos'
-set :deploy_via, :copy
-set :keep_releases, 5
-set :use_sudo, false
-set :ssh_options, {:forward_agent => true}
+set :deploy_to, '/home/deploy/innerspace'
 
-
-after "deploy:restart", "deploy:cleanup"
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
 
-  desc "symlink shared files"
-  task :symlink_shared, :roles => :app do
-    run "ln -nfs #{shared_path}/system/mongoid.yml #{release_path}/config/mongoid.yml"
-    run "ln -nfs #{shared_path}/system/application.yml #{release_path}/config/application.yml"
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
   end
 
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-
+  after :publishing, 'deploy:restart'
+  after :finishing, 'deploy:cleanup'
 end
-before "deploy:assets:precompile", "deploy:symlink_shared"
