@@ -1,5 +1,4 @@
 require 'open-uri'
-
 class Business < ActiveRecord::Base
 	attr_reader :image_remote_url
 	# scope :unique_by_country, lambda { select(:country).uniq}
