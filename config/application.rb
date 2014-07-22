@@ -31,10 +31,10 @@ module Innerspace
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
-    config.paperclip_defaults = {
-            :storage => :s3,
-            :s3_host_name => 's3-us-west-2.amazonaws.com'
- }
-    config.assets.initialize_on_precompile = true
+ #    config.paperclip_defaults = {
+ #            :storage => :s3,
+ #            :s3_host_name => 's3-us-west-2.amazonaws.com'
+ # }
+ #    config.assets.initialize_on_precompile = true
   end
 end

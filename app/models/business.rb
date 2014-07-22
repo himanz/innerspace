@@ -5,13 +5,14 @@ class Business < ActiveRecord::Base
   has_attached_file :image, styles: {
   	thumb: '100x100>',
   	medium: '500x300>'
-  },
-  :storage => :s3,
-  :s3_credentials => {
-      :bucket => 'innerspace',
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+  }
+  # ,
+  # :storage => :s3,
+  # :s3_credentials => {
+  #     :bucket => 'innerspace',
+  #     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+  #     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  #   }
 
   before_create :image_remote_url
 
@@ -22,7 +23,7 @@ class Business < ActiveRecord::Base
 
   def image_remote_url
   	self.image = URI.parse(streetview_image)
-  	@image_remote_url = (streetview_image)
+  	@image_remote_url = streetview_image
   	self.image_file_name = self.name
   end
 
