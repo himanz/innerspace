@@ -14,6 +14,7 @@ Category.create(name: "University")
 Category.create(name: "Golf Course")
 Category.create(name: "Attractions")
 Category.create(name: "Park")
+Category.create(name: "Amusement Park")
 
 Business.create(name: "Sangri-La Hotel", 
 	              address: "188 University Ave", 
@@ -110,4 +111,15 @@ Business.create(name: "High Park",
                 state: "Ontario",
                 country: "Canada")
 
+Business.create(name: "Six Flags Magic Mountain",
+	              address: "26101 Magic Mountain Pkwy",
+	              city: "Valencia",
+	              state: "California",
+	              country: "United States",
+	              heading: "200.0",
+	              pano: "upyOW0YA61H3MfMnkebYww",
+	              cbp: ",267.58,,0,10.300003",
+	              latitude: 34.426096,
+	              longitude: -118.598395,
+	              category_id: 7)
 
