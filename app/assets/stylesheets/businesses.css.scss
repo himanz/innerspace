@@ -20,8 +20,15 @@
 }
 
 #search {
-	width: 15%;
+	display: inline;
+}
+
+#search-content {
 	margin-left: 45%;
+}
+
+#category-select {
+	width: 25%;
 }
 
 #show-info {

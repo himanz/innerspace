@@ -4,14 +4,16 @@
 </div>
 
 <div id="search-container">
+  <div id="search-content">
   <div id="search"> 
-  <%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
-    <h4>Filter by</h4>
-    <%= label_tag :category %>
-    <%= select_tag :category, options_from_collection_for_select(@category, "id", "name") %>
-    <%= submit_tag :Submit, :class => "button tiny" %>
-  <% end %>
+    <%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
+      <h4>Filter by</h4>
+      <%= label_tag :category %>
+      <%= select_tag :category, options_from_collection_for_select(@category, "id", "name"), :id => "category-select" %>
+      <%= submit_tag :Submit, :class => "button tiny", :id => "search-submit" %>
+    <% end %>
   </div>
+</div>
 </div>
 
 <% @businesses.each do |business| %>
