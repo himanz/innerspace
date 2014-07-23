@@ -60,10 +60,10 @@ feature 'User management' do
   	fill_in 'user_password', with: @default.password
   	click_button 'Sign in'
 		click_link "edit profile"
-		fill_in 'user_email', with: "jon@jon.com"
+		fill_in 'user_first_name', with: "Bobby"
 		fill_in 'user_current_password', with: @default.password
 		click_button "Update"
-		expect(page).to have_content "jon@jon.com"
+		expect(page).to have_content "Bobby"
 	end
 	
 end
