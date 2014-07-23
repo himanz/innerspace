@@ -5,3 +5,7 @@
 	<p><%= @business.formatted_address %><p>
 	<p><%= @business.country %></p>
 </div>
+
+<div id="comments">
+	<%= commontator_thread(@business) %>
+</div>

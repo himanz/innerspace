@@ -15,6 +15,7 @@ class BusinessesController < ApplicationController
 	end
 
 	def show
+		commontator_thread_show(@business)
 	end
 
 	def new
