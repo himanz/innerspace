@@ -71,7 +71,7 @@ module Commontator
     
     def updated_timestamp
       I18n.t 'commontator.comment.status.updated_at',
-             :editor_name => Commontator.commontator_name(editor || creator),
+             :editor_name => creator.display_name,
              :updated_at => I18n.l(updated_at, :format => :commontator)
     end
 
