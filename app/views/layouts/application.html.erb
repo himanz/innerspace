@@ -27,7 +27,7 @@
           <% if user_signed_in? %>
             <li class="active"><%= link_to "edit profile", edit_user_registration_path %></li>
             <li class="has-dropdown">
-              <a href="#">Logged in as <strong><%= current_user.email %></strong></a>
+              <a href="#">Logged in as <strong><%= current_user.display_name %></strong></a>
               <ul class="dropdown">
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
               </ul>

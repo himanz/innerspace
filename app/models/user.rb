@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def display_name
+    "#{first_name} #{last_name[0]}"
+  end
 end
