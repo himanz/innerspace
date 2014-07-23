@@ -12,6 +12,8 @@ feature 'User management' do
 		click_link 'Sign up'
 		expect {
 			fill_in 'user_email', with: "joe@joe.com"
+      fill_in 'user_first_name', with: "Joe"
+      fill_in 'user_last_name', with: "Star"
 			fill_in 'user_password', with: "12345678"
 			fill_in 'user_password_confirmation', with: "12345678"
 			click_button 'Sign up'
