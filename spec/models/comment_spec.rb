@@ -52,7 +52,7 @@ module Commontator
                                                    :created_at => I18n.l(@comment.created_at,
                                                                          :format => :commontator))
       expect(@comment.updated_timestamp).to eq I18n.t('commontator.comment.status.updated_at',
-                                                   :editor_name => "Anonymous",
+                                                   :editor_name => "Jonathan C",
                                                    :updated_at => I18n.l(@comment.updated_at,
                                                                          :format => :commontator))
 
@@ -65,7 +65,7 @@ module Commontator
                                                    :created_at => I18n.l(@comment.created_at,
                                                                          :format => :commontator))
       expect(@comment.updated_timestamp).to eq I18n.t('commontator.comment.status.updated_at',
-                                                   :editor_name => "Anonymous",
+                                                   :editor_name => "Jonathan C",
                                                    :updated_at => I18n.l(@comment.updated_at,
                                                                          :format => :commontator))
     end
