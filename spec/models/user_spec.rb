@@ -6,6 +6,14 @@ describe User do
   	expect(user).to be_valid
   end
 
+  it "is invalid without a first name" do
+    expect(User.new(first_name: nil)).to have(1).errors_on(:first_name)
+  end
+
+  it "is invalid without a last name" do
+    expect(User.new(last_name: nil)).to have(1).errors_on(:last_name)
+  end
+
   it "is invalid without an email" do
   	expect(User.new(email: nil)).to have(1).errors_on(:email)
   end
