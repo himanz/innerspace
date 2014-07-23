@@ -42,3 +42,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, :type => :controller
 end
+
+def setup_model_spec
+  @user = create(:user)
+  @commontable = create(:business)
+  @thread = @commontable.thread
+end
