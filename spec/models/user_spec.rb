@@ -25,4 +25,9 @@ describe User do
   it "is invalid with a password that is not 8 characters" do
   	expect(User.new(email: "jon@jon.com", password: "1234567")).to have(1).errors_on(:password)
   end
+
+  it "displays correct display name" do
+    jon = create(:user)
+    expect(jon.display_name).to eq "Jonathan C"
+  end
 end
