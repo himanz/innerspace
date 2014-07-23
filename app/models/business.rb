@@ -6,18 +6,18 @@ class Business < ActiveRecord::Base
   	medium: '500x300>'
   }
 
-  # before_create :image_remote_url
+  before_create :image_remote_url
 
 	belongs_to :pin
 
 	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, :city, presence: true
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
 
-  # def image_remote_url
-  # 	self.image = URI.parse(streetview_image)
-  # 	@image_remote_url = streetview_image
-  # 	self.image_file_name = self.name
-  # end
+  def image_remote_url
+  	self.image = URI.parse(streetview_image)
+  	@image_remote_url = streetview_image
+  	self.image_file_name = self.name
+  end
 
 	def self.by_letter(letter)
 		where("name LIKE ?", "#{letter}%").order(:name)
