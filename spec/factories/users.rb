@@ -4,6 +4,8 @@ FactoryGirl.define do
   factory :user do
   	email "jon@jon.com"
   	password "12345678"
+    first_name "Jonathan"
+    last_name "Chang"
 
   	factory :invalid_user do
   		email nil
