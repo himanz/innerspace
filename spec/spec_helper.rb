@@ -48,3 +48,8 @@ def setup_model_spec
   @commontable = create(:business)
   @thread = @commontable.thread
 end
+
+def setup_controller_spec
+  class_eval {include ApplicationHelper}
+  setup_model_spec
+end
