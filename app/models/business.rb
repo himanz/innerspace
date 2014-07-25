@@ -1,6 +1,6 @@
 class Business < ActiveRecord::Base
 	attr_reader :image_remote_url
-	scope :unique_by_country, lambda { select(:country).uniq}
+	scope :unique_by_country, lambda { select(:country).uniq.order("country ASC")}
   has_attached_file :image, styles: {
   	thumb: '100x100>',
   	medium: '500x300>'
