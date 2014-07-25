@@ -7,8 +7,10 @@ class BusinessesController < ApplicationController
 		@category = Category.all
 		# if params[:letter]
 		# 	@businesses = Business.by_letter(params[:letter])
-		if params[:category]
-			@businesses = Business.by_category(params[:category]).page(params[:page])
+		# if params[:category]
+		# 	@businesses = Business.by_category(params[:category]).page(params[:page])
+		if params[:country]
+			@businesses = Business.search(params[:country], params[:category]).page(params[:page])
 		else
 			@businesses = Business.order("name").page(params[:page])
 		end

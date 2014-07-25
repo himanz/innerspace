@@ -25,13 +25,17 @@ class Business < ActiveRecord::Base
 		where("name LIKE ?", "#{letter}%").order(:name)
 	end
 
+	def self.search(country, category)
+		by_country(country).by_category(category)
+	end
+
 	def self.by_category(category)
 		where(category_id: category)
 	end
 
-	# def self.by_country(country)
-	# 	where("country LIKE ?", "#{country}")
-	# end
+	def self.by_country(country)
+		where("country LIKE ?", "#{country}")
+	end
 
 	def self.by_recent
 		where("created_at >= ?", 1.week.ago.utc).order("created_at DESC")
