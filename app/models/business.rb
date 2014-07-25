@@ -26,7 +26,9 @@ class Business < ActiveRecord::Base
 	end
 
 	def self.search(country, category)
-		if country == ""
+		if country == "" && category == ""
+			Business.all
+		elsif country == ""
 			by_category(category)
 		elsif category == ""
 			by_country(country)
