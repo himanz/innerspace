@@ -6,7 +6,7 @@ class Business < ActiveRecord::Base
   	medium: '500x300>'
   }
 
-  # before_create :image_remote_url
+  before_create :image_remote_url
 
 	belongs_to :pin
 
@@ -15,11 +15,11 @@ class Business < ActiveRecord::Base
 
   acts_as_commontable
 
-  # def image_remote_url
-  # 	self.image = URI.parse(streetview_image)
-  # 	@image_remote_url = streetview_image
-  # 	self.image_file_name = self.name
-  # end
+  def image_remote_url
+  	self.image = URI.parse(streetview_image)
+  	@image_remote_url = streetview_image
+  	self.image_file_name = self.name
+  end
 
 	def self.by_letter(letter)
 		where("name LIKE ?", "#{letter}%").order(:name)
