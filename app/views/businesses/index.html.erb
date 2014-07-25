@@ -10,7 +10,7 @@
       <h4>Filter by</h4>
       <%= label_tag :category %>
       <%= select_tag :country, options_from_collection_for_select(Business.unique_by_country, "country", "country"), :id => "country-select" %>
-      <%= select_tag :category, options_from_collection_for_select(@category, "id", "name"), :id => "category-select" %>
+      <%= select_tag :category, options_from_collection_for_select(@category, "id", "name"), { :prompt => "All", :id => "category-select" }%>
       <%= submit_tag :Submit, :class => "button tiny", :id => "search-submit" %>
     <% end %>
   </div>
