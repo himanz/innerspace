@@ -44,7 +44,7 @@ module Commontator
           format.js 
         else
           format.html { redirect_to @thread }
-          format.js { render :new }
+          format.js { render :new } 
         end
       end
     end
