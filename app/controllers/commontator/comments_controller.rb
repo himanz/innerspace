@@ -41,7 +41,7 @@ module Commontator
           @per_page = params[:per_page] || @thread.config.comments_per_page
 
           format.html { redirect_to @thread }
-          format.js
+          format.js 
         else
           format.html { redirect_to @thread }
           format.js { render :new }
