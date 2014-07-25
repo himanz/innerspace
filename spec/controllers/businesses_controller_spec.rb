@@ -18,9 +18,10 @@ describe BusinessesController do
 			# end
 
 			context 'with params[:category] and params[:country]' do
-				it "populates an array of businesses with the same category" do
+				it "populates an array of businesses with correct filters" do
 					hotel1 = create(:hotel1_business)
 					hotel2 = create(:hotel2_business)
+					usa = create(:usa1_business)
 					park = create(:park_business)
 					get :index, category: "1", country: "Canada"
 					expect(assigns(:businesses)).to match_array([hotel1, hotel2])
@@ -31,6 +32,8 @@ describe BusinessesController do
 					expect(response).to render_template :index
 				end
 			end
+
+
 
 			context 'without params' do
 				it "populates an array of all businesses" do
@@ -164,9 +167,10 @@ describe BusinessesController do
 			# end
 
 			context 'with params[:category] and params [:country]' do
-				it "populates an array of businesses with the same category" do
+				it "populates an array of businesses with correct filters" do
 					hotel1 = create(:hotel1_business)
 					hotel2 = create(:hotel2_business)
+					usa = create(:usa1_business)
 					park = create(:park_business)
 					get :index, category: "1", country: "Canada"
 					expect(assigns(:businesses)).to match_array([hotel1, hotel2])
