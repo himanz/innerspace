@@ -43,5 +43,17 @@ FactoryGirl.define do
       name "Cherry" 
       category_id 2
     end
+
+    factory :usa1_business do
+      name "Usa 1"
+      country "United States"
+      category_id 1
+    end
+
+    factory :usa2_business do
+      name "Usa 2"
+      country "United States"
+      category_id 2
+    end
   end
 end
