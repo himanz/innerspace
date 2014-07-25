@@ -37,6 +37,16 @@ describe BusinessesController do
 					expect(assigns(:businesses)).to match_array([usa, usa2])
 				end
 
+				it "populates an array with all hotels" do
+					hotel1 = create(:hotel1_business)
+					hotel2 = create(:hotel2_business)
+					usa = create(:usa1_business)
+					usa2 = create(:usa2_business)
+					park = create(:park_business)
+					get :index, category: "1", country: ""
+					expect(assigns(:businesses)).to match_array([hotel1, hotel2, usa])
+				end
+
 				it "renders the :index view" do
 					get :index, category: "1"
 					expect(response).to render_template :index
@@ -192,6 +202,16 @@ describe BusinessesController do
 					park = create(:park_business)
 					get :index, category: "", country: "United States"
 					expect(assigns(:businesses)).to match_array([usa, usa2])
+				end
+
+				it "populates an array with all hotels" do
+					hotel1 = create(:hotel1_business)
+					hotel2 = create(:hotel2_business)
+					usa = create(:usa1_business)
+					usa2 = create(:usa2_business)
+					park = create(:park_business)
+					get :index, category: "1", country: ""
+					expect(assigns(:businesses)).to match_array([hotel1, hotel2, usa])
 				end
 
 				it "renders the :index view" do
