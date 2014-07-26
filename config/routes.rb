@@ -10,6 +10,7 @@ Innerspace::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  resources :static_pages, :only => [:index]
   get "about", :to => 'static_pages#about'
   
   mount Commontator::Engine => '/commontator'
