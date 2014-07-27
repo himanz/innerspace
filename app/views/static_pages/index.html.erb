@@ -1,7 +1,10 @@
 <div id="video-container">
 	<%= video_tag("tajmahal.mp4", autoplay: true, loop: true, muted: true, :id => "taj-video") %>
 	<div id="video-text">
-    <h1 class="home-text" id="slogan">Visit places around the world, at home</h2>
+    <h1 class="home-text" id="slogan">Visit places around the world, at home</h1>
+    <%= button_tag businesses_path, :class => 'button', :id => "home-button" do %>
+      <%= t('Visit Places') %>
+    <% end %>
 	</div>
 </div>
 
