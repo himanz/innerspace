@@ -1,5 +1,5 @@
 Innerspace::Application.routes.draw do
-  root to: "businesses#index"
+  root to: "static_pages#index"
 
   resources :businesses do
     get :recent, on: :collection 
