@@ -109,3 +109,29 @@
 // #ocean {
 //   background-image: url("ocean.jpg");	
 // }
+
+ul.img-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+ 
+ul.img-list li {
+  display: inline-block; 
+  position: relative;
+  
+}
+
+span.text-content {
+  color: white;
+  left: 0;
+  position: absolute;
+  top: 0;
+  font-size: 300%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
