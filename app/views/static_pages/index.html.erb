@@ -25,13 +25,17 @@
 		</div>
 	<% end %>
 
-	<div class="large-4 columns country">  
-  	<%= link_to image_tag("india.jpg"), businesses_path(:country => "India", :category => "") %>  
-	</div>
+	<%= link_to businesses_path(:country => "India", :category => "") do %>
+	  <div class="large-4 columns country" id="india">  
+	    	<p class="country-text">India</p>
+		</div>
+	<% end %>
 	
-	<div class="large-4 columns country">
-      <%= link_to image_tag("japan.jpg"), businesses_path(:country => "Japan", :category => "") %>
-  </div>
+	<%= link_to businesses_path(:country => "Japan", :category => "") do %>
+	  <div class="large-4 columns country" id="japan">  
+	    	<p class="country-text">Japan</p>
+		</div>
+	<% end %>
 
   <div class="large-4 columns country">  
     	<%= link_to image_tag("cambodia.jpg"), businesses_path(:country => "Cambodia", :category => "") %>
