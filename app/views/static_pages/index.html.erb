@@ -37,23 +37,33 @@
 		</div>
 	<% end %>
 
-  <div class="large-4 columns country">  
-    	<%= link_to image_tag("cambodia.jpg"), businesses_path(:country => "Cambodia", :category => "") %>
-	</div>
+  <%= link_to businesses_path(:country => "Cambodia", :category => "") do %>
+	  <div class="large-4 columns country" id="cambodia">  
+	    	<p class="country-text">Cambodia</p>
+		</div>
+	<% end %>
 
-	<div class="large-4 columns country">  
-    <%= link_to image_tag("antarctica.jpg"), businesses_path(:country => "Antarctica", :category => "") %>
-	</div>
+	<%= link_to businesses_path(:country => "Antarctica", :category => "") do %>
+	  <div class="large-4 columns country" id="antarctica">  
+	    	<p class="country-text">Antarctica</p>
+		</div>
+	<% end %>
 
-	<div id="canada" class="large-4 columns country">
-      <%= link_to image_tag("china.jpg"), businesses_path(:country => "China", :category => "") %>
-  </div>
+	<%= link_to businesses_path(:country => "China", :category => "") do %>
+	  <div class="large-4 columns country" id="china">  
+	    	<p class="country-text">China</p>
+		</div>
+	<% end %>
 
-  <div class="large-4 columns country">  
-    	<%= link_to image_tag("brazil.jpg"), businesses_path(:country => "Brazil", :category => "") %>
-	</div>
+  <%= link_to businesses_path(:country => "Brazil", :category => "") do %>
+	  <div class="large-4 columns country" id="brazil">  
+	    	<p class="country-text">Brazil</p>
+		</div>
+	<% end %>
 
-	<div class="large-4 columns country">  
-    	<%= link_to image_tag("ocean.jpg"), businesses_path(:country => "", :category => "Ocean") %>
-	</div>
+	<%= link_to businesses_path(:country => "", :category => "Ocean") do %>
+	  <div class="large-4 columns country" id="ocean">  
+	    	<p class="country-text">Ocean</p>
+		</div>
+	<% end %>
 </div>
