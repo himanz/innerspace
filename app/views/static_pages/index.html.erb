@@ -1,7 +1,7 @@
 <div id="video-container">
 	<%= video_tag("tajmahal.mp4", autoplay: true, loop: true, muted: true, :id => "taj-video") %>
-	<div id="video-text">
-    <h1 class="home-text" id="slogan">Visit places around the world, at home</h1>
+	<div id="video-overlay">
+    <h1 class="video-text" id="slogan">Visit places around the world, at home</h1>
     <div>
       <%= button_to "Visit Places", businesses_path, :method => :get, :class => 'button', :id => "home-button" %>
     </div>
