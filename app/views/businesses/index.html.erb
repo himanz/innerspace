@@ -5,15 +5,15 @@
 
 <div id="search-container">
   <div id="search-content">
-  <div id="search"> 
-    <%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
-      <%= label_tag :filter_by %>
-      <%= select_tag :country, options_from_collection_for_select(Business.unique_by_country, "country", "country"), { :prompt => "Country", :id => "country-select" } %>
-      <%= select_tag :category, options_from_collection_for_select(@category, "id", "name"), { :prompt => "Category", :id => "category-select" }%>
-      <%= submit_tag :Submit, :class => "button tiny", :id => "search-submit" %>
-    <% end %>
+    <div id="search"> 
+      <%= form_tag(businesses_path, :method => "get", id: "business-search") do %> 
+        <%= label_tag :filter_by %>
+        <%= select_tag :country, options_from_collection_for_select(Business.unique_by_country, "country", "country"), { :prompt => "Country", :id => "country-select" } %>
+        <%= select_tag :category, options_from_collection_for_select(@category, "id", "name"), { :prompt => "Category", :id => "category-select" }%>
+        <%= submit_tag :Submit, :class => "button tiny", :id => "search-submit" %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>
 
 <% @businesses.each do |business| %>
@@ -22,8 +22,8 @@
     <p><%= business.name %></p>
     <p><%= business.formatted_address %><p>
     <p><%= business.country %></p></br>
-
   </div>
 <% end %>
 
 <%= paginate @businesses %>  
+

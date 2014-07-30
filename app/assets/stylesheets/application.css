@@ -53,3 +53,7 @@
 	display: inline;
 	margin-right: 1%;
 }
+
+#footer-clear {
+	clear: both;
+}
