@@ -6,7 +6,7 @@ class Business < ActiveRecord::Base
   	medium: '500x300>'
   }
 
-  before_create :image_remote_url
+  before_save :image_remote_url
 
 	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, :city, presence: true
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
