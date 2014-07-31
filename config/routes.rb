@@ -12,8 +12,6 @@ Innerspace::Application.routes.draw do
 
   resources :static_pages, :only => [:index]
   get "about", :to => 'static_pages#about'
-  
-  mount Commontator::Engine => '/commontator'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

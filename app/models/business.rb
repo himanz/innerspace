@@ -8,12 +8,10 @@ class Business < ActiveRecord::Base
 
   before_create :image_remote_url
 
-	belongs_to :pin
+	# belongs_to :pin
 
 	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, :city, presence: true
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
-
-  acts_as_commontable
 
   def image_remote_url
   	self.image = URI.parse(streetview_image)
