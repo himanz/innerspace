@@ -1,0 +1,78 @@
+<div id="video-container">
+	<%= image_tag("chanaz.jpg", :id => "taj-video") %>
+	<div id="video-overlay">
+    <h1 class="video-text" id="slogan">Visit places around the world, at home</h1>
+    <div id="video-button-container">
+      <%= button_to "Visit Places", businesses_path, :method => :get, :class => 'button', :id => "home-button" %>
+    </div>
+	</div>
+</div>
+
+<div id="country-select-title">
+  <h2 id="select-title">Pick a location to visit</h2>
+</div>
+
+<div class="row">
+	<%= link_to businesses_path(:country => "Canada", :category => "") do %>
+		<div class="large-4 columns country" id="canada">
+	    <%= image_tag("canada.jpg") %>
+	    <span class="text-content">Canada</span>
+	  </div>
+  <% end %>
+
+  <%= link_to businesses_path(:country => "United States", :category => "") do %>
+		<div class="large-4 columns country" id="unitedstates">
+	    <%= image_tag("unitedstates.jpg") %>
+	    <span class="text-content">United States</span>
+	  </div>
+  <% end %>
+
+	<%= link_to businesses_path(:country => "India", :category => "") do %>
+		<div class="large-4 columns country" id="india">
+	    <%= image_tag("india.jpg") %>
+	    <span class="text-content">India</span>
+	  </div>
+  <% end %>
+
+	<%= link_to businesses_path(:country => "Japan", :category => "") do %>
+		<div class="large-4 columns country" id="japan">
+	    <%= image_tag("japan.jpg") %>
+	    <span class="text-content">Japan</span>
+	  </div>
+  <% end %>
+
+  <%= link_to businesses_path(:country => "Cambodia", :category => "") do %>
+		<div class="large-4 columns country" id="cambodia">
+	    <%= image_tag("cambodia.jpg") %>
+	    <span class="text-content">Cambodia</span>
+	  </div>
+  <% end %>
+
+	<%= link_to businesses_path(:country => "Antarctica", :category => "") do %>
+		<div class="large-4 columns country" id="antarctica">
+	    <%= image_tag("antarctica.jpg") %>
+	    <span class="text-content">Antarctica</span>
+	  </div>
+  <% end %>
+
+	<%= link_to businesses_path(:country => "China", :category => "") do %>
+		<div class="large-4 columns country" id="china">
+	    <%= image_tag("china.jpg") %>
+	    <span class="text-content">China</span>
+	  </div>
+  <% end %>
+
+  <%= link_to businesses_path(:country => "Brazil", :category => "") do %>
+		<div class="large-4 columns country" id="brazil">
+	    <%= image_tag("brazil.jpg") %>
+	    <span class="text-content">Brazil</span>
+	  </div>
+  <% end %>
+
+	<%= link_to businesses_path(:country => "", :category => "Ocean") do %>
+		<div class="large-4 columns country" id="ocean">
+	    <%= image_tag("ocean.jpg") %>
+	    <span class="text-content">Oceans</span>
+	  </div>
+  <% end %>
+</div>
