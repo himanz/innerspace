@@ -44,8 +44,25 @@
 	margin: 0 auto;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1024px) {
 	#disqus_thread {
 		width: 90%;
+	}
+
+	#search-content {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	#country-select {
+		width: 100%;
+	}
+
+	#category-select {
+		width: 100%;
+	}
+
+	#search-submit {
+		margin: 0 0 auto;
 	}
 }
