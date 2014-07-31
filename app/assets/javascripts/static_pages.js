@@ -7,6 +7,5 @@ $(document).ready(function() {
 	$(".country").mouseleave(function() {
   	$(this).fadeTo( "slow", 0.85)
 	})
-
-	  
+  
 })
