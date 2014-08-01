@@ -15,6 +15,7 @@ Category.create(name: "Golf Course")
 Category.create(name: "Attractions")
 Category.create(name: "Park")
 Category.create(name: "Amusement Park")
+Category.create(name: "Stadium")
 
 Business.create(name: "Sangri-La Hotel", 
 	              address: "188 University Ave", 
@@ -122,4 +123,16 @@ Business.create(name: "Six Flags Magic Mountain",
 	              latitude: 34.426096,
 	              longitude: -118.598395,
 	              category_id: 7)
+
+Business.create(name: "Arena Corinthians",
+	              address: "Av. Miguel Inácio Curi, 111",
+	              city: "Sau Paulo",
+	              state: "Sau Paulo",
+	              country: "Brazil",
+	              heading: "100.0",
+	              pano: "6CvzzzgvWrE2FgzGbyZVYQ",
+	              cbp: ",94.01,,0,21.779999",
+	              latitude: -23.545262,
+	              longitude: -46.474248,
+	              category_id: 8)
 
