@@ -15,3 +15,23 @@ feature 'Static Pages link click' do
 		expect(page).to have_content "Contact Me"
 	end
 end
+
+feature 'Pages should contain footer' do
+	scenario "Home page should have footer" do
+		visit root_path
+		expect(page).to have_link 'About'
+		expect(page).to have_link 'Contact'
+	end
+
+	scenario "Businesses index should have footer" do
+		visit businesses_path
+		expect(page).to have_link 'About'
+		expect(page).to have_link 'Contact'
+	end
+
+	scenario "About page should have footer" do
+		visit about_path
+		expect(page).to have_link 'About'
+		expect(page).to have_link 'Contact'
+	end
+end
