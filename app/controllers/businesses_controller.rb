@@ -4,7 +4,7 @@ class BusinessesController < ApplicationController
   before_action :check_admin, except: [:index, :show, :recent, :random]
 
 	def index
-		@category = Category.all
+		@category = Category.all.order("name")
 		if params[:country] || params[:category]
 			@businesses = Business.search(params[:country], params[:category]).order("name").page(params[:page])
 		else
