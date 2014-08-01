@@ -136,3 +136,16 @@ Business.create(name: "Arena Corinthians",
 	              longitude: -46.474248,
 	              category_id: 8)
 
+Business.create(name: "Maracana Stadium",
+	              address: "Rua Professor Eurico Rabelo",
+	              city: "Maracana",
+	              state: "Rio de Janeiro",
+	              country: "Brazil",
+	              heading: "100.0",
+	              pano: "FswHxum2YNghwNhyqpFgSQ",
+	              cbp: ",30.8,,0,-4.3499985",
+	              latitude: -22.912165,
+	              longitude: -43.230249,
+	              category_id: 8)
+
+
