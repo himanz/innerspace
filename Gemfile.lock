@@ -264,6 +264,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
+  minitest
   omniauth-facebook
   paperclip (~> 4.1)
   pg
