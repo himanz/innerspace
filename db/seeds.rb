@@ -18,6 +18,7 @@ Category.create(name: "Amusement Park")
 Category.create(name: "Stadium")
 Category.create(name: "World Heritage Site")
 Category.create(name: "Island")
+Category.create(name: "Historical")
 
 Business.create(name: "Sangri-La Hotel", 
 	              address: "188 University Ave", 
@@ -185,5 +186,17 @@ Business.create(name: "Half Moon Island",
 	              latitude: -62.596087,
 	              longitude: -59.901655,
 	              category_id: 10)
+
+Business.create(name: "Taierzhuang Ancient Town",
+	              address: nil,
+	              city: "Zaozhuang",
+	              state: "Shandong ",
+	              country: "China",
+	              heading: "275",
+	              pano: "rY5ZW6S3sFUAAAAGOzOdpg",
+	              cbp: ",279.31,,0,5.470001",
+	              latitude: 34.557692,
+	              longitude: 117.74251,
+	              category_id: 11)
 
 
