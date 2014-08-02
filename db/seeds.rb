@@ -19,6 +19,7 @@ Category.create(name: "Stadium")
 Category.create(name: "World Heritage Site")
 Category.create(name: "Island")
 Category.create(name: "Historical")
+Category.create(name: "Ocean")
 
 Business.create(name: "Sangri-La Hotel", 
 	              address: "188 University Ave", 
@@ -210,3 +211,15 @@ Business.create(name: "Hirosaki Park",
 	              city: "Hirosaki",
                 state: "Aomori",
                 country: "Japan")
+
+Business.create(name: "Tubbataha Reefs Natural Park",
+	              address: nil,
+	              city: nil,
+	              state: "Cagayancillo",
+	              country: "Phillipines",
+	              heading: 375,
+	              pano: "J67g8IADDUUAAAQWx3Mt6g",
+	              cbp: ",0.0,,0,-0.0",
+	              latitude: 8.93619,
+	              longitude: 120.008698,
+	              category_id: 12)
