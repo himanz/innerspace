@@ -161,4 +161,16 @@ Business.create(name: "Angkor Wat",
 	              longitude: 103.866829,
 	              category_id: 9)
 
+Business.create(name: "Taj Mahal",
+	              address: nil,
+	              city: "Agra",
+	              state: "Uttar Pradesh",
+	              country: "India",
+	              heading: "0",
+	              pano: "ypwvZafR9EHGbeK0JPItLg",
+	              cbp: ",3.4,,0,-10.18",
+	              latitude: 27.173351,
+	              longitude: 78.042109,
+	              category_id: 5)
+
 
