@@ -16,6 +16,7 @@ Category.create(name: "Attractions")
 Category.create(name: "Park")
 Category.create(name: "Amusement Park")
 Category.create(name: "Stadium")
+Category.create(name: "World Heritage Site")
 
 Business.create(name: "Sangri-La Hotel", 
 	              address: "188 University Ave", 
@@ -147,5 +148,17 @@ Business.create(name: "Maracana Stadium",
 	              latitude: -22.912165,
 	              longitude: -43.230249,
 	              category_id: 8)
+
+Business.create(name: "Angkor Wat",
+	              address: "",
+	              city: "",
+	              state: "Siem Reap",
+	              country: "Cambodia",
+	              heading: "100.0",
+	              pano: "bjZSpboXyy8vj71FfP532w",
+	              cbp: ",323.48,,0,3.3799973",
+	              latitude: 13.412281,
+	              longitude: 103.866829,
+	              category_id: 9)
 
 
