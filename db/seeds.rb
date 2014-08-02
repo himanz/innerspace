@@ -150,8 +150,8 @@ Business.create(name: "Maracana Stadium",
 	              category_id: 8)
 
 Business.create(name: "Angkor Wat",
-	              address: "",
-	              city: "",
+	              address: nil,
+	              city: nil,
 	              state: "Siem Reap",
 	              country: "Cambodia",
 	              heading: "100.0",

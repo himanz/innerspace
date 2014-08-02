@@ -50,7 +50,15 @@ class Business < ActiveRecord::Base
 	end
 
 	def formatted_address
-		"#{address}, #{city}, #{state}"
+		if address == nil && city == nil
+			"#{state}"
+		elsif address == nil
+			"#{city}, #{state}"
+		elsif city == nil
+			"#{address}, #{state}"
+		else
+		  "#{address}, #{city}, #{state}"
+	  end
 	end
 
 	def streetview_image
