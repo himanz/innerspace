@@ -59,7 +59,7 @@ feature 'User management' do
   	fill_in 'user_email', with: @default.email
   	fill_in 'user_password', with: @default.password
   	click_button 'Sign in'
-		click_link "edit profile"
+		click_link "Edit profile"
 		fill_in 'user_first_name', with: "Bobby"
 		fill_in 'user_current_password', with: @default.password
 		click_button "Update"
