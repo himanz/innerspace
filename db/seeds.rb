@@ -17,6 +17,7 @@ Category.create(name: "Park")
 Category.create(name: "Amusement Park")
 Category.create(name: "Stadium")
 Category.create(name: "World Heritage Site")
+Category.create(name: "Island")
 
 Business.create(name: "Sangri-La Hotel", 
 	              address: "188 University Ave", 
@@ -172,5 +173,17 @@ Business.create(name: "Taj Mahal",
 	              latitude: 27.173351,
 	              longitude: 78.042109,
 	              category_id: 5)
+
+Business.create(name: "Half Moon Island",
+	              address: nil,
+	              city: nil,
+	              state: "South Shetland Islands",
+	              country: "Antarctica",
+	              heading: "200",
+	              pano: "ZzuMubmHCfCGGo3ePSlpCQ",
+	              cbp: ",233.34,,0,0.48000336",
+	              latitude: -62.596087,
+	              longitude: -59.901655,
+	              category_id: 10)
 
 
