@@ -8,7 +8,7 @@ class Business < ActiveRecord::Base
 
   before_save :image_remote_url
 
-	validates :name, :address, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, :city, presence: true
+	validates :name, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, presence: true
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
 
   def image_remote_url

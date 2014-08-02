@@ -10,8 +10,8 @@ describe Business do
   	expect(Business.new(name: nil)).to have(1).errors_on(:name)
   end
 
-  it "is invalid without an address" do
-  	expect(Business.new(address: nil)).to have(1).errors_on(:address)
+  it "is valid without an address" do
+  	expect(Business.new(address: nil)).to have(0).errors_on(:address)
   end
 
   it "is invalid without a heading" do
@@ -30,11 +30,15 @@ describe Business do
     expect(Business.new(longitude: nil)).to have(1).errors_on(:longitude)
   end
 
+  it "is valid without a city" do
+    expect(Business.new(city: nil)).to have(0).errors_on(:city)
+  end
+
   it "is invalid without a state" do
     expect(Business.new(state: nil)).to have(1).errors_on(:state)
   end
 
-  it "is invalid without a state" do
+  it "is invalid without a country" do
     expect(Business.new(country: nil)).to have(1).errors_on(:country)
   end  
 
