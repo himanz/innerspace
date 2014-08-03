@@ -40,7 +40,7 @@ feature 'Business management' do
 			  select('Hotel', :from => 'business_category_id')
 			  click_button 'Submit'
 			}.to_not change(Business, :count)
-			expect(current_path).to eq business_path(@default)
+			expect(current_path).to eq business_path("#{@default.id}-yum-bar")
 			expect(page).to have_content "Business was successfully updated."
 			expect(page).to have_content 'Yum Bar'
 			expect(page).to have_content '1 Default Drive'
