@@ -12,7 +12,11 @@ class Business < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
 
   def to_param
-  	"#{id}-#{name}"
+  	"#{id}-#{slug}"
+  end
+
+  def slug
+  	name.downcase.gsub(" ", "-")
   end
 
   def image_remote_url
