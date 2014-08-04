@@ -11,13 +11,13 @@ class Business < ActiveRecord::Base
 	validates :name, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, presence: true
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
 
-  def to_param
-  	"#{id}-#{slug}"
-  end
+  # def to_param
+  # 	"#{id}-#{slug}"
+  # end
 
-  def slug
-  	name.downcase.gsub(" ", "-")
-  end
+  # def slug
+  # 	name.downcase.gsub(" ", "-")
+  # end
 
   def image_remote_url
   	self.image = URI.parse(streetview_image)
