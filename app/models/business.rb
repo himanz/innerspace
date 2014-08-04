@@ -11,6 +11,9 @@ class Business < ActiveRecord::Base
 	validates :name, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, presence: true
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   # def to_param
   # 	"#{id}-#{slug}"
   # end
