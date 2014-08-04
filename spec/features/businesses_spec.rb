@@ -28,7 +28,7 @@ feature 'Business management' do
 		  	select("Hotel", :from => 'business_category_id')
 		  	click_button 'Submit'
 		  }.to change(Business, :count).by(1)
-		  expect(current_path).to eq business_path(("#{@default.id + 1}-#{@default.slug}"))
+		  expect(current_path).to eq business_path(Business.friendly.find(@default.id + 1))
 		  expect(page).to have_content "Business was successfully created"
 		  expect(page).to have_content 'Default Cafe'
 		end
