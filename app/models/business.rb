@@ -6,7 +6,7 @@ class Business < ActiveRecord::Base
   	medium: '500x300>'
   }
 
-  # before_save :image_remote_url
+  before_save :image_remote_url
 
 	validates :name, :pano, :heading, :cbp, :category_id, :latitude, :longitude, :state, :country, presence: true
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg"]
@@ -14,11 +14,11 @@ class Business < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  # def image_remote_url
-  # 	self.image = URI.parse(streetview_image)
-  # 	@image_remote_url = streetview_image
-  # 	self.image_file_name = self.name
-  # end
+  def image_remote_url
+  	self.image = URI.parse(streetview_image)
+  	@image_remote_url = streetview_image
+  	self.image_file_name = self.name
+  end
 
 	def self.by_letter(letter)
 		where("name LIKE ?", "#{letter}%").order(:name)
