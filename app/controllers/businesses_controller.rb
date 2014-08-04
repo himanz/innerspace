@@ -60,7 +60,7 @@ class BusinessesController < ApplicationController
 	end
 
 	def random
-		redirect_to business_path(Business.random_pick)
+		redirect_to business_path(Business.friendly.find(Business.random_pick))
 	end
 
 	private
