@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804172015) do
+ActiveRecord::Schema.define(version: 20140804201508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,66 +37,26 @@ ActiveRecord::Schema.define(version: 20140804172015) do
     t.string   "slug"
   end
 
+  add_index "businesses", ["slug"], name: "index_businesses_on_slug", unique: true, using: :btree
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "comments", force: true do |t|
-    t.string   "message"
-    t.integer  "user_id"
-    t.integer  "business_id"
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
     t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
-  create_table "commontator_comments", force: true do |t|
-    t.string   "creator_type"
-    t.integer  "creator_id"
-    t.string   "editor_type"
-    t.integer  "editor_id"
-    t.integer  "thread_id",                     null: false
-    t.text     "body",                          null: false
-    t.datetime "deleted_at"
-    t.integer  "cached_votes_up",   default: 0
-    t.integer  "cached_votes_down", default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "commontator_comments", ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down", using: :btree
-  add_index "commontator_comments", ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up", using: :btree
-  add_index "commontator_comments", ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id", using: :btree
-  add_index "commontator_comments", ["thread_id"], name: "index_commontator_comments_on_thread_id", using: :btree
-
-  create_table "commontator_subscriptions", force: true do |t|
-    t.string   "subscriber_type", null: false
-    t.integer  "subscriber_id",   null: false
-    t.integer  "thread_id",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "commontator_subscriptions", ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true, using: :btree
-  add_index "commontator_subscriptions", ["thread_id"], name: "index_commontator_subscriptions_on_thread_id", using: :btree
-
-  create_table "commontator_threads", force: true do |t|
-    t.string   "commontable_type"
-    t.integer  "commontable_id"
-    t.datetime "closed_at"
-    t.string   "closer_type"
-    t.integer  "closer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
-
-  create_table "contacts", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
